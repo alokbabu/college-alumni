@@ -1,4 +1,19 @@
 # college-alumni
-PHP Training with GitHub
+A training project with PHP, Bootstrap and GitHub.
 
-will be updating soon.
+#Aim
+Learn to build web applications with PHP.
+
+#Modules
+- OOP Concepts.
+- Coding conventions.
+- Bootstrap.
+- Javascript, JQuery.
+- MySQL
+
+#Who all can send pull request
+Unauthorised pull requests will be ignored.
+
+
+#Recommended link
+http://code.tutsplus.com/tutorials/object-oriented-php-for-beginners--net-12762
