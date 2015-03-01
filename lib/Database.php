@@ -63,4 +63,8 @@ class Database
         }
     }    
 }
+// END Database class
+
+/* End of file Database.php */
+/* Location: ./lib/Database.php */
 ?>

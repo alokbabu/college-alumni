@@ -69,4 +69,8 @@ class Department
 		return $this;
   	}
 }
+// END Department class
+
+/* End of file Department.php */
+/* Location: ./lib/Department.php */
 ?>

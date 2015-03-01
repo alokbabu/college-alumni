@@ -104,4 +104,9 @@ class student extends batch
 		return $this;
   	}
 }
+// END Student class
+
+/* End of file Student.php */
+/* Location: ./lib/Student.php */
+
 ?>

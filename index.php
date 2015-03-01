@@ -17,20 +17,38 @@ $home = "active";
 			
 				<?php
 				// Creating instance (object) of Student class                 
-				$new_admission = new student();
+				$student_one = new student();
 
 				//Setting values to new_admission object of student class with magic functions
-				$new_admission->__set("studentid","stud5");
-				$new_admission->__set("firstname","merin");
-				$new_admission->__set("lastname","mm");
-				$new_admission->__set("gender","female");
-				$new_admission->__set("address","m_address");
-				$new_admission->__set("mobile","8974569896");
-				$new_admission->__set("email","@gmail.com");
-				$new_admission->__set("courseid","7");
-				$new_admission->__set("batchid","3");
+				$student_one->__set("studentid","1001");
+				$student_one->__set("firstname","John");
+				$student_one->__set("lastname","Doe");
+				$student_one->__set("gender","Male");
+				$student_one->__set("address","Bournville, Portsmouth");
+				$student_one->__set("mobile","8974569896");
+				$student_one->__set("email","johndoe@college.edu.in");
+				$student_one->__set("courseid","7");
+				$student_one->__set("batchid","3");
 
-				var_dump($new_admission);
+				//Creating another instance.
+				$student_two = new Student();
+				$student_two->__set("studentid","1002");
+				$student_two->__set("firstname","Jeff");
+				$student_two->__set("lastname","Gordon");
+				$student_two->__set("gender","Male");
+				$student_two->__set("address","Melbourne, Christchurch");
+				$student_two->__set("mobile","876567897");
+				$student_two->__set("email","jeffgordon@college.edu.in");
+				$student_two->__set("courseid","7");
+				$student_two->__set("batchid","3");
+
+				//Adding objects to an array
+				$students = array();
+				array_push($students, $student_one);
+				array_push($students, $student_two);
+
+
+				var_dump($students);
 
 				//Creating instance of Query Class
 				//$query= new Query();

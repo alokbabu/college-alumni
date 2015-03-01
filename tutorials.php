@@ -1,6 +1,5 @@
 <?php 
 include_once 'header.php';
-include_once 'lib/student.php';
 include_once 'lib/query.php';
 $tutorials = "active";
 ?>

@@ -71,4 +71,8 @@ class Course extends Department
 		return $this;
   	}
 }
+// END Course class
+
+/* End of file Course.php */
+/* Location: ./lib/Course.php */
 ?>

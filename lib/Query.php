@@ -131,5 +131,8 @@ class Query extends Database
 		return $myconn->result;
 	}
 }
+// END Student Query
 
+/* End of file Query.php */
+/* Location: ./lib/Query.php */
 ?>
