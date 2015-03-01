@@ -14,12 +14,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Students</a></li>
-        <li><a href="#">Contact us</a></li>
-
+        <li class="<?php echo $home; ?>"><a href="index.php">Home <span class="sr-only">(current)</span></a></li>
+        <li class="<?php echo $about;?>"><a href="#">About</a></li>
+        <li class="<?php echo $student;?>"><a href="#">Student</a></li>
+        <li class="<?php echo $tutorials;?>"><a href="tutorials.php">Tutorials</a></li>
+        <li class="<?php echo $contact;?>"><a href="#">Contact us</a></li>
       </ul>
+
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Username">
