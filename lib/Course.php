@@ -1,13 +1,17 @@
 <?php
-/*
-* Author: 
-* Description: Course Class with Course member properties
-* Date: 28 - Feb - 2015
-* Version: 1.0
-* Company: Technolodge.
-*/
+/**
+ * Description: Course declaration class.
+ *
+ * @author: 
+ * @version: 1.0.0.0
+ * @package: lib
+ * @subpackage:
+ * @since:
+ * @copyright: Technolodge, 2015. 
+ * @license: https://github.com/alokbabu/college-alumni/blob/master/license.txt BSD
+ */
 
-include_once 'lib/department.php';
+include_once 'lib/Department.php';
 
 class Course extends Department
 {

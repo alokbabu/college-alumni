@@ -8,7 +8,7 @@
  * @subpackage:
  * @since:
  * @copyright: Technolodge, 2015. 
- * @license: BSD, ./license.txt
+ * @license: https://github.com/alokbabu/college-alumni/blob/master/license.txt BSD
  */
 
 class Department 

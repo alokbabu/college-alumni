@@ -8,10 +8,10 @@
  * @subpackage:
  * @since:
  * @copyright: Technolodge, 2015. 
- * @license: BSD, ./license.txt
+ * @license: https://github.com/alokbabu/college-alumni/blob/master/license.txt BSD
  */
 
-include_once 'course.php';
+include_once 'Course.php';
 
 class Batch extends Course
 {  

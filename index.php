@@ -1,7 +1,7 @@
 <?php 
 include_once 'header.php';
-include_once 'lib/student.php';
-include_once 'lib/query.php';
+include_once 'lib/Student.php';
+include_once 'lib/Query.php';
 $home = "active";
 ?>
 <body>

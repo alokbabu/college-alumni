@@ -8,11 +8,11 @@
  * @subpackage:
  * @since:
  * @copyright: Technolodge, 2015. 
- * @license: BSD, ./license.txt
+ * @license: https://github.com/alokbabu/college-alumni/blob/master/license.txt BSD
  */
 
-include_once 'lib/database.php';
-include_once 'lib/student.php';
+include_once 'lib/Database.php';
+include_once 'lib/Student.php';
 
 class Query extends Database
 {
