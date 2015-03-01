@@ -38,7 +38,18 @@ class student extends batch
 	 $this->mobile = ""; 
 	}
 
-	//Member Functions
+	/**
+	 * Destroys the object. 
+	 * PHP destroys the object at the end of file autmatically.
+	 * However you can destroy objects explicitly using unset()
+	 * 
+	*/
+	public function __destruct()
+	{
+
+	}
+
+	//Member Functions goes below
 
 	/**
 	 * Magic Getter Method for PHP. Rather than calling individual getters and setters for member properties

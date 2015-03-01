@@ -22,6 +22,17 @@ class Course extends Department
 		$this->coursename = "";
 	}
 
+	/**
+	 * Destroys the object. 
+	 * PHP destroys the object at the end of file autmatically.
+	 * However you can destroy objects explicitly using unset()
+	 * 
+	*/
+	public function __destruct()
+	{
+
+	}
+
 	//Member functions goes below.
 	
 	/**

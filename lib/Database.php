@@ -32,6 +32,17 @@ class Database
     }
 
     /**
+     * Destroys the object. 
+     * PHP destroys the object at the end of file autmatically.
+     * However you can destroy objects explicitly using unset()
+     * 
+    */
+    public function __destruct()
+    {
+        //unset($this->conn);
+    }
+
+    /**
      * Memeber Function
      *
      * @return: Returns a connection object on successful connection.

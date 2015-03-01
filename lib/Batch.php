@@ -19,11 +19,22 @@ class Batch extends Course
 	private $batchid;
 	private $batchname;
 
-	//Constructor
+	//Initialises the object
 	function __construct()
 	{
 		$this->batchid=0;
 		$this->batchname = "";
+	}
+
+	/**
+	 * Destroys the object. 
+	 * PHP destroys the object at the end of file autmatically.
+	 * However you can destroy objects explicitly using unset()
+	 * 
+	*/
+	public function __destruct()
+	{
+
 	}
 
 	/**
