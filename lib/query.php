@@ -12,16 +12,23 @@ class Query extends Database
 {
 
 	//Returns an HTML table with student_id_auto and fname
+	//This function is for training only. It is not a good convention to echo or return a HTML table result.
+	//Return db result object or array.
 	//Params : $id
 	function get_student_by_id($id)
 	{
+		//Creates a connection object with initialised values in the Database constructor. Use print_r($myconn) for 
+		//detailed result.
 		$myconn = parent::establish_connection();
 		
-	  	$getstud = "SELECT * FROM `students` where stud_id_auto='".$id."' " ;
+		//Building query to be executed against MySql
+	  	$getstud = "SELECT * FROM `students` where stud_id_auto='".$id."'";
+	    // Executing Query and fetches db result
 	    $this->result = $myconn->query($getstud); 
+	    // If number of rows in the result is greater than zero.
 	    if($this->result->num_rows > 0)
 	    {
-	    	echo "<table border='1'>";
+	    	echo "<table border='1'>"; //Creates a html table element tag
 	  		echo "</td><td>"."stud_id"."</td><td>"."stud_name"."</td></tr>";
 	     	while($row = $this->result->fetch_assoc()) 
 	     	{
@@ -32,13 +39,13 @@ class Query extends Database
 	  {
 	      echo "no data found";
 	  }
-	   echo "</table >";		
+	   echo "</table >"; //Closing html table element tag.	
 	}
 
-
-	//Gets all department  either as an HTML table or as database result object or as an array of deparment object
-	// when type is defined.
-	//Params optional type='table'/ type="row"
+	/*Gets all department  either as an HTML table or as database result object or as an array of 
+	* deparment object when type is defined.
+	* params optional type='table'/ type="row"
+	*/
 	function get_department_all($type="")
   	{
   		//Initialises the connection
@@ -96,10 +103,13 @@ class Query extends Database
 	{
 		$myconn = parent::establish_connection();
 
+		//Building insert query
+		//TODO: Validate values before inserting.
 		$insertstud="INSERT INTO `students`(`studentid`, `fname`, `lname`, `gender`, `address`, `mobile`, `email`, `courseid`, `batchid`) VALUES ('".$std->studentid."','".$std->firstname."','".$std->lastname."','".$std->gender."','".$std->address."','".$std->mobile."','".$std->email."','".$std->courseid."','".$std->batchid."')";
-		echo $insertstud;
+		//Execute query
 		$myconn->query($insertstud); 
-		echo "values inserted";
+		//Should return the result. Returns number of rows affected by the query.
+		return $myconn->result;
 	}
 }
 
