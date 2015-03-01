@@ -16,13 +16,13 @@ include_once 'lib/batch.php';
 class student extends batch
 {
 	//Member properties
-	var $studentid;
-	var $firstname;
-	var $lastname;
-	var $gender;
-	var $address;
-	var $email;
-	var $mobile;
+	private $studentid;
+	private $firstname;
+	private $lastname;
+	private $gender;
+	private $address;
+	private $email;
+	private $mobile;
 	
 	//Constructor
 	function __construct()

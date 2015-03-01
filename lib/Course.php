@@ -12,8 +12,8 @@ include_once 'lib/department.php';
 class Course extends Department
 {
 	//Member properties
-	var $courseid;
-	var $coursename;
+	private $courseid;
+	private $coursename;
 
 	//Constructor.
 	function __construct()

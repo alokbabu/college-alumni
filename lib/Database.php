@@ -13,12 +13,12 @@
 class Database 
 {
     //Member properties
-    var $servername;
-    var $username;
-    var $password;
-    var $dbname;
-    var $conn;
-    var $result;
+    private $servername;
+    private $username;
+    private $password;
+    private $dbname;
+    private $conn;
+    private $result;
 
     //Constructor
     function __construct()

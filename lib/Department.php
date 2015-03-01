@@ -14,8 +14,8 @@
 class Department 
 {	
 	//Member properties
-	var $departmentid;
-	var $departmentname;
+	private $departmentid;
+	private $departmentname;
 
 	//Constructor
 	function __construct()
