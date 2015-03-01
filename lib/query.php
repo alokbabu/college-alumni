@@ -14,7 +14,7 @@
 include_once 'lib/database.php';
 include_once 'lib/student.php';
 
-public class Query extends Database
+class Query extends Database
 {
 
 	/** 
