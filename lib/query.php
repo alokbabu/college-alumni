@@ -1,21 +1,32 @@
 <?php
-/*
-* Author: 
-* Description: Query Class for executing database queries
-* Date: 28 - Feb - 2015
-* Version: 1.0
-* Company: Technolodge.
-*/
-include_once 'lib/Database.php';
+/**
+ * Description: For executing queries against MySql Database.
+ *
+ * @author: 
+ * @version: 1.0.0.0
+ * @package: lib
+ * @subpackage:
+ * @since:
+ * @copyright: Technolodge, 2015. 
+ * @license: BSD, ./license.txt
+ */
+
+include_once 'lib/database.php';
 include_once 'lib/student.php';
-class Query extends Database
+
+public class Query extends Database
 {
 
-	//Returns an HTML table with student_id_auto and fname
-	//This function is for training only. It is not a good convention to echo or return a HTML table result.
-	//Return db result object or array.
-	//Params : $id
-	function get_student_by_id($id)
+	/** 
+	 * Returns an HTML table with student_id_auto and fname.
+	 *
+	 * Note: This function is for training only. It is not a good convention to echo or return a HTML table result.
+	 * return string or array instead.
+	 *
+	 * @param: int
+	 * @return: db result object/array.
+	*/
+	public function get_student_by_id($id)
 	{
 		//Creates a connection object with initialised values in the Database constructor. Use print_r($myconn) for 
 		//detailed result.
@@ -42,11 +53,15 @@ class Query extends Database
 	   echo "</table >"; //Closing html table element tag.	
 	}
 
-	/*Gets all department  either as an HTML table or as database result object or as an array of 
-	* deparment object when type is defined.
-	* params optional type='table'/ type="row"
+	/** 
+	 * Gets all department  either as an HTML table or as database result object or as an array of 
+	 * deparment object when type is defined.
+	 *
+	 * @param: string
+	 * @return: string, array, dbresult
+	 * Eg: get_department_all("table"); , get_department_all("row")
 	*/
-	function get_department_all($type="")
+	public function get_department_all($type="")
   	{
   		//Initialises the connection
 	  	$myconn = parent::establish_connection();
@@ -97,9 +112,13 @@ class Query extends Database
 	  	}
 	}
 
-	//Insert student to database when an initialised student object is passed as parameter.
-	//param : Student stud
-	function add_student(student $std)
+	/**
+	 * Insert student to database when a student object is passed as parameter.
+	 *
+	 * @param : Student
+	 * @return: dbresult
+	*/
+	public function add_student(student $std)
 	{
 		$myconn = parent::establish_connection();
 

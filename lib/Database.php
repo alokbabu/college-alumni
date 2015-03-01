@@ -1,11 +1,15 @@
 <?php
 /**
-* Author:
-* Description: Initialises database connection.
-* Date: 28 - Feb - 2015
-* Version: 1.0
-* Company: Technolodge 
-*/
+ * Description: Initialises the connection to a MySql database.
+ *
+ * @author: 
+ * @version: 1.0.0.0
+ * @package: lib
+ * @subpackage:
+ * @since:
+ * @copyright: Technolodge, 2015. 
+ * @license: BSD, ./license.txt
+ */
 class Database 
 {
     //Member properties
@@ -19,7 +23,7 @@ class Database
     //Constructor
     function __construct()
     {
-    	$this->servername = "localhost";
+    	$this->servername = "localhost"; //change this if you wish to connect to a different server
         $this->username = "root";
         $this->password = "";
         $this->dbname = "college_alumini";
@@ -27,8 +31,11 @@ class Database
         $this->result = array(); 
     }
 
-    //Memeber Function
-    //Returns a connection object on successful connection.
+    /**
+     * Memeber Function
+     *
+     * @return: Returns a connection object on successful connection.
+    */
     function establish_connection()
     {
     	//Initialize Mysqli Object
