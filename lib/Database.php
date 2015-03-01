@@ -9,16 +9,16 @@
 class Database 
 {
     //Member properties
-	var $servername;
-	var $username;
-	var $password;
-	var $dbname;
-	var $conn;
+    var $servername;
+    var $username;
+    var $password;
+    var $dbname;
+    var $conn;
     var $result;
 
-	//Constructor
-	function __construct()
-	{
+    //Constructor
+    function __construct()
+    {
     	$this->servername = "localhost";
         $this->username = "root";
         $this->password = "";
@@ -26,7 +26,7 @@ class Database
         $this->conn = "";
         $this->result = array(); 
     }
-    
+
     //Memeber Function
     //Returns a connection object on successful connection.
     function establish_connection()
