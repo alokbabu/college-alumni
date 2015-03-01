@@ -15,8 +15,14 @@ include_once 'Course.php';
 
 class Batch extends Course
 {  
-	//Properties or Member variables
+	//Member properties
+	/**
+	 * @var int stores batchid for the class
+	*/
 	private $batchid;
+	/**
+	 * @var string stores batchid for the class
+	*/
 	private $batchname;
 
 	//Initialises the object

@@ -16,12 +16,33 @@ include_once 'lib/batch.php';
 class student extends batch
 {
 	//Member properties
+	/**
+	 * @var int holds studentid.
+	*/
 	private $studentid;
+	/**
+	 * @var string stores firstname for student.
+	*/
 	private $firstname;
+	/**
+	 * @var string stores lastname for student.
+	*/
 	private $lastname;
+	/**
+	 * @var string stores gender for student.
+	*/
 	private $gender;
+	/**
+	 * @var string stores address for student.
+	*/
 	private $address;
+	/**
+	 * @var string stores email for student.
+	*/
 	private $email;
+	/**
+	 * @var string stores mobile for student.
+	*/
 	private $mobile;
 	
 	//Constructor
