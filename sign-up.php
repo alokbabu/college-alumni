@@ -1,5 +1,5 @@
 <?php 
-include_once 'header.php';
+include_once 'includes/header.php';
 include_once 'lib/Login.php';
 include_once 'lib/Query.php';
 $home = "active";
@@ -10,7 +10,7 @@ $contact = "";
 ?>
 <body>
 	<div class="container">
-		<?php include_once 'nav-bar.php'; ?>
+		<?php include_once 'includes/nav-bar.php'; ?>
         
         <div class="panel panel-default" style="width : 600px;">
         	<div class="panel-heading">Sign up</div>
@@ -53,4 +53,4 @@ $contact = "";
 
 </body>
 
-<?php include_once 'footer.php'; ?>
+<?php include_once 'includes/footer.php'; ?>

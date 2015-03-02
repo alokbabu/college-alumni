@@ -1,5 +1,5 @@
 <?php 
-include_once 'header.php';
+include_once 'includes/header.php';
 include_once 'lib/Login.php';
 include_once 'lib/Query.php';
 $home = "active";
@@ -10,7 +10,7 @@ $contact = "";
 ?>
 <body>
 	<div class="container">
-		<?php include_once 'nav-bar.php'; ?>
+		<?php include_once 'includes/nav-bar.php'; ?>
 		<div class="jumbotron">
 		  <h1>College Alumni Home Page</h1>
 		  <p>A College Alumni website using Bootstrap and PHP</p>
@@ -23,7 +23,6 @@ $contact = "";
 
 
 				$new = new student("1001","John","Doe","Male","San fransico","johndoe@example.com","200600799");
-				$new->add_new_student($new);
 
 
 
@@ -37,7 +36,7 @@ $contact = "";
 	</div> <!-- ./container-->
 </body>
 
-<?php include_once 'footer.php'; ?>
+<?php include_once 'includes/footer.php'; ?>
 
 
 
