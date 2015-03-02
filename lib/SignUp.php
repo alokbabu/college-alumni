@@ -12,7 +12,7 @@
  * @license: https://github.com/alokbabu/college-alumni/blob/master/license.txt BSD
  */
 
-include_once 'lib/Student.php';
+include_once 'lib/Login.php';
 
 
 class SignUp extends Login
@@ -40,18 +40,22 @@ class SignUp extends Login
 	/**
 	 * @var int holds security qn.
 	*/
+	private $username;
+
+	/**
+	 * @var int holds security qn.
+	*/
 	private $password;
 	
 
 
-	function __construct($email, $firstname, $lastname, $gender, $password)
+	function __construct($email, $firstname, $lastname, $gender, $username, $password)
 	{
 		$this->email = $email;
 		$this->firstname = $firstname;
 		$this->lastname = $lastname;
 		$this->password = $password;
-		$this->sec_question = $sec_question;
-		$this->sec_answer = $sec_answer;
+		$this->username = $username;
 
 	}
 

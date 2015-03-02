@@ -37,7 +37,7 @@ $contact = "";
 		            <div class="form-group break-tp-sm">
 		                <label for="gender" class="col-md-3 control-label">Gender</label>
 		                <div class="col-md-9">
-		                    <select class="form-control">
+		                    <select class="form-control" name="gender">
 		                    	<option value="-1">select gender</option>
 		                    	<option value="2">Male</option>
 		                    	<option value="3">Female</option>
@@ -45,13 +45,19 @@ $contact = "";
 		            </div>
 		            </div>
 		            <div class="form-group break-tp-sm">
-		                <label for="password" class="col-md-3 control-label">Password</label>
+		                <label for="username" class="col-md-3 control-label">Username</label>
 		                <div class="col-md-9">
-		                    <input type="password" class="form-control" name="passwd" placeholder="Password">
+		                    <input type="text" class="form-control" name="username" placeholder="Username">
 		                </div>
 		            </div>
 		            <div class="form-group break-tp-sm">
-		                <label for="password" class="col-md-3 control-label"></label>
+		                <label for="password" class="col-md-3 control-label">Password</label>
+		                <div class="col-md-9">
+		                    <input type="password" class="form-control" name="password" placeholder="Password">
+		                </div>
+		            </div>
+		            <div class="form-group break-tp-sm">
+		                <label for="submit" class="col-md-3 control-label"></label>
 		                <div class="col-md-9">
 		                    <input type="submit" class="btn btn-default" >
 		                </div>

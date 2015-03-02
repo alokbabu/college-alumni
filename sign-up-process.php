@@ -2,10 +2,9 @@
 
 include_once('lib/SignUp.php');
 
-$signup = new SignUp();
+$signup = new SignUp($_POST["email"], $_POST["firstname"], $_POST["lastname"], $_POST["gender"], $_POST["username"], $_POST["password"]);
 
-$signup->username = $_POST["username"];
-
+var_dump($signup);
 
 
 ?>
