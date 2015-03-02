@@ -35,6 +35,16 @@ $contact = "";
 		                </div>
 		            </div>
 		            <div class="form-group break-tp-sm">
+		                <label for="gender" class="col-md-3 control-label">Gender</label>
+		                <div class="col-md-9">
+		                    <select class="form-control">
+		                    	<option value="-1">select gender</option>
+		                    	<option value="2">Male</option>
+		                    	<option value="3">Female</option>
+		                    </select>
+		            </div>
+		            </div>
+		            <div class="form-group break-tp-sm">
 		                <label for="password" class="col-md-3 control-label">Password</label>
 		                <div class="col-md-9">
 		                    <input type="password" class="form-control" name="passwd" placeholder="Password">

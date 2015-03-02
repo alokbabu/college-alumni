@@ -1,8 +1,11 @@
 <?php
 
-//TODO: Get post parameters.
-//DO Validations.
-//Do database operations.
-//Return Status.
+include_once('lib/SignUp.php');
+
+$signup = new SignUp();
+
+$signup->username = $_POST["username"];
+
+
 
 ?>

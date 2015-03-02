@@ -3,10 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 02, 2015 at 02:07 PM
+-- Generation Time: Mar 02, 2015 at 07:31 PM
 -- Server version: 5.5.38
 -- PHP Version: 5.6.2
--- Author : Alok Babu on Monday 2 March 6:38 PM
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -96,6 +95,7 @@ CREATE TABLE `login` (
   `student_id` int(10) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `security_qtn` varchar(50) NOT NULL,
   `security_ans` varchar(50) NOT NULL,
   `email_validation_token` varchar(200) NOT NULL,
@@ -205,7 +205,7 @@ ALTER TABLE `department`
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
- ADD PRIMARY KEY (`login_id`), ADD UNIQUE KEY `username` (`username`), ADD KEY `indxst` (`student_id`);
+ ADD PRIMARY KEY (`login_id`), ADD UNIQUE KEY `username` (`username`), ADD UNIQUE KEY `email` (`email`), ADD KEY `indxst` (`student_id`);
 
 --
 -- Indexes for table `message`

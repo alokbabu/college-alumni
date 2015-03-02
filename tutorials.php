@@ -1,5 +1,5 @@
 <?php 
-include_once 'header.php';
+include_once 'includes/header.php';
 include_once 'lib/query.php';
 $home = "";
 $about = "";
@@ -9,7 +9,7 @@ $contact = "";
 ?>
 <body>
 	<div class="container">
-		<?php include_once 'nav-bar.php'; ?>
+		<?php include_once 'includes/nav-bar.php'; ?>
 		<div class="panel panel-default" style="min-height: 600px;">
 			<div class="col-md-12">
 				<h3>Setting values to student object</h3>
@@ -60,7 +60,7 @@ $new = new student("1001","John","Doe","Male","San fransico","johndoe@example.co
 	</div> <!-- ./container-->
 </body>
 
-<?php include_once 'footer.php'; ?>
+<?php include_once 'includes/footer.php'; ?>
 
 
 
