@@ -46,17 +46,17 @@ class student extends batch
 	private $mobile;
 	
 	//Constructor
-	function __construct()
+	function __construct($studentid, $firstname, $lastname, $gender, $address, $email, $mobile)
 	{
 	 //Initialize the parent constructor if required.
 	 //parent::__construct(); 
-	 $this->studentid = "";
-	 $this->firstname = "";
-	 $this->lastname = "";
-	 $this->gender= "";
-	 $this->address = "";
-	 $this->email = "";
-	 $this->mobile = ""; 
+	 $this->studentid = $studentid;
+	 $this->firstname = $firstname;
+	 $this->lastname = $lastname;
+	 $this->gender= $gender;
+	 $this->address = $address;
+	 $this->email = $email;
+	 $this->mobile = $mobile;
 	}
 
 	/**

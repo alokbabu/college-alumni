@@ -27,6 +27,7 @@
           <input type="password" class="form-control" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-default">Login</button>
+        <small><a href="./sign-up.php">&nbsp;new user?</a></small>
       </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

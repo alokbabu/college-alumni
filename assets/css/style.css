@@ -1,1 +1,16 @@
 /*You style goes here*/
+
+.break-tp-sm
+{
+	padding-top: 30px;
+}
+
+.break-tp-md
+{
+	padding-top: 40px;
+}
+
+.break-tp-lg
+{
+	padding-top: 60px;
+}

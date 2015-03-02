@@ -6,8 +6,6 @@ $about = "";
 $student = "";
 $tutorials = "active";
 $contact = "";
-echo "merin";
-echo "Feba";
 ?>
 <body>
 	<div class="container">
@@ -19,51 +17,44 @@ echo "Feba";
 					<pre>
 						<code>							
 // Creating instance (object) of Student class                 
-$new_admission = new student();
+$student_one = new student();
 
 //Setting values to new_admission object of student class with magic functions
-$new_admission->__set("studentid","1001");
-$new_admission->__set("firstname","John");
-$new_admission->__set("lastname","Doe");
-$new_admission->__set("gender","Male");
-$new_admission->__set("address","Bournville, Portsmouth");
-$new_admission->__set("mobile","8974569896");
-$new_admission->__set("email","johndoe@college.edu.in");
-$new_admission->__set("courseid","7");
-$new_admission->__set("batchid","3");
+$student_one->__set("studentid","1001");
+$student_one->__set("firstname","John");
+$student_one->__set("lastname","Doe");
+$student_one->__set("gender","Male");
+$student_one->__set("address","Bournville, Portsmouth");
+$student_one->__set("mobile","8974569896");
+$student_one->__set("email","johndoe@college.edu.in");
+$student_one->__set("courseid","7");
+$student_one->__set("batchid","3");
 
-var_dump($new_admission); 
+//Creating another instance.
+$student_two = new Student();
+$student_two->__set("studentid","1002");
+$student_two->__set("firstname","Jeff");
+$student_two->__set("lastname","Gordon");
+$student_two->__set("gender","Male");
+$student_two->__set("address","Melbourne, Christchurch");
+$student_two->__set("mobile","876567897");
+$student_two->__set("email","jeffgordon@college.edu.in");
+$student_two->__set("courseid","7");
+$student_two->__set("batchid","3");
+
+
+//Adding objects to an array
+$students = array();
+array_push($students, $student_one);
+array_push($students, $student_two);
+var_dump($students);
+
+//constructor overloading
+$new = new student("1001","John","Doe","Male","San fransico","johndoe@example.com","200600799");
 							
 						</code>
 					</pre>
 				</p>
-
-				<h4>var dumping values var_dump(<em class="text-italics">expression</em>)</h4>
-
-				<?php
-				// Creating instance (object) of Student class                 
-				$new_admission = new student();
-
-
-				//Setting values to new_admission object of student class with magic functions
-				$new_admission->__set("studentid","1001");
-				$new_admission->__set("firstname","John");
-				$new_admission->__set("lastname","Doe");
-				$new_admission->__set("gender","Male");
-				$new_admission->__set("address","Bournville, Portsmouth");
-				$new_admission->__set("mobile","8974569896");
-				$new_admission->__set("email","johndoe@college.edu.in");
-				$new_admission->__set("courseid","7");
-				$new_admission->__set("batchid","3");
-
-				var_dump($new_admission);
-
-				//Creating instance of Query Class
-				//$query= new Query();
-				//$query->add_student($new_admission);
-				//$query->get_student_byid('1');    
-
-				?>
 			</div><!-- ./col-md-6-->
 		</div> <!-- ./panel-default-->
 	</div> <!-- ./container-->

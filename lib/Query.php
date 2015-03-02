@@ -41,12 +41,10 @@ class Query extends Database
 	    {
             $this->result; 
 		}
-	  } // if num_rows is 0
-	  else
-	  {
+	    else/// if num_rows is 0
+	    {
 	      echo "no data found";
-	  }
-	   echo "</table >"; //Closing html table element tag.	
+	    }
 	}
 
 	/** 
