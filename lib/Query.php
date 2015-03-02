@@ -39,12 +39,8 @@ class Query extends Database
 	    // If number of rows in the result is greater than zero.
 	    if($this->result->num_rows > 0)
 	    {
-	    	echo "<table border='1'>"; //Creates a html table element tag
-	  		echo "</td><td>"."stud_id"."</td><td>"."stud_name"."</td></tr>";
-	     	while($row = $this->result->fetch_assoc()) 
-	     	{
-	     		echo "</td><td>".$row["stud_id_auto"]."</td><td>".$row["fname"]."</td></tr>";
-	    	} 
+            $this->result; 
+		}
 	  } // if num_rows is 0
 	  else
 	  {
