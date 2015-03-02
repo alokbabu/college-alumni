@@ -1,20 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.2.10
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 02, 2015 at 12:23 PM
--- Server version: 5.1.57-community
--- PHP Version: 5.5.12
+-- Host: localhost
+-- Generation Time: Mar 02, 2015 at 02:07 PM
+-- Server version: 5.5.38
+-- PHP Version: 5.6.2
+-- Author : Alok Babu on Monday 2 March 6:38 PM
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `college_alumni`
@@ -26,11 +21,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `batch`
 --
 
-CREATE TABLE IF NOT EXISTS `batch` (
-  `bid` int(11) NOT NULL AUTO_INCREMENT,
-  `batch` year(4) NOT NULL,
-  PRIMARY KEY (`bid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE `batch` (
+`batch_id` int(11) NOT NULL,
+  `batch` year(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -38,55 +32,58 @@ CREATE TABLE IF NOT EXISTS `batch` (
 -- Table structure for table `batch_course`
 --
 
-CREATE TABLE IF NOT EXISTS `batch_course` (
-  `batch_courseid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `batch_course` (
+`batch_courseid` int(11) NOT NULL,
   `batchid` int(10) NOT NULL,
-  `courseid` int(10) NOT NULL,
-  PRIMARY KEY (`batch_courseid`),
-  KEY `indxbatch` (`batchid`),
-  KEY `indxcourse` (`courseid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `course_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `courses`
+-- Table structure for table `college`
 --
 
-CREATE TABLE IF NOT EXISTS `courses` (
-  `cid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `college` (
+`college_id` int(11) NOT NULL,
+  `college_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course`
+--
+
+CREATE TABLE `course` (
+`course_id` int(11) NOT NULL,
   `course` varchar(30) NOT NULL,
-  `did` int(10) NOT NULL,
-  PRIMARY KEY (`cid`),
-  KEY `indxdep` (`did`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `department_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `coverphoto`
+-- Table structure for table `cover_photo`
 --
 
-CREATE TABLE IF NOT EXISTS `coverphoto` (
-  `photoid` int(11) NOT NULL AUTO_INCREMENT,
-  `sid` int(10) NOT NULL,
-  `photo` varchar(100) NOT NULL,
-  `datetime` datetime NOT NULL,
-  PRIMARY KEY (`photoid`),
-  KEY `indxst` (`sid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE `cover_photo` (
+`photo_id` int(11) NOT NULL,
+  `student_id` int(10) NOT NULL,
+  `cover_photo_url` varchar(100) NOT NULL,
+  `updated_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `departments`
+-- Table structure for table `department`
 --
 
-CREATE TABLE IF NOT EXISTS `departments` (
-  `did` int(10) NOT NULL AUTO_INCREMENT,
-  `department` varchar(20) NOT NULL,
-  PRIMARY KEY (`did`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE `department` (
+`department_id` int(11) NOT NULL,
+  `department` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -94,88 +91,205 @@ CREATE TABLE IF NOT EXISTS `departments` (
 -- Table structure for table `login`
 --
 
-CREATE TABLE IF NOT EXISTS `login` (
-  `loginid` int(11) NOT NULL AUTO_INCREMENT,
-  `sid` int(10) NOT NULL,
+CREATE TABLE `login` (
+`login_id` int(11) NOT NULL,
+  `student_id` int(10) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
-  `securityqtn` varchar(50) NOT NULL,
-  `securityans` varchar(50) NOT NULL,
-  PRIMARY KEY (`loginid`),
-  UNIQUE KEY `indxuser` (`username`),
-  KEY `indxst` (`sid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `security_qtn` varchar(50) NOT NULL,
+  `security_ans` varchar(50) NOT NULL,
+  `email_validation_token` varchar(200) NOT NULL,
+  `password_reset_token` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messages`
+-- Table structure for table `message`
 --
 
-CREATE TABLE IF NOT EXISTS `messages` (
-  `mid` int(11) NOT NULL AUTO_INCREMENT,
-  `fromid` int(20) NOT NULL,
-  `toid` int(20) NOT NULL,
-  `messages` varchar(100) NOT NULL,
-  `datetime` datetime NOT NULL,
-  PRIMARY KEY (`mid`),
-  KEY `indxfrom` (`fromid`),
-  KEY `indxto` (`toid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE `message` (
+`message_id` int(11) NOT NULL,
+  `from_student_id` int(20) NOT NULL,
+  `to_student_id` int(20) NOT NULL,
+  `message` varchar(600) NOT NULL,
+  `datetime_sent` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `propic`
+-- Table structure for table `profile_pic`
 --
 
-CREATE TABLE IF NOT EXISTS `propic` (
-  `picid` int(11) NOT NULL AUTO_INCREMENT,
-  `sid` int(20) NOT NULL,
-  `pic` varchar(100) NOT NULL,
-  `datetime` datetime NOT NULL,
-  PRIMARY KEY (`picid`),
-  KEY `indxst` (`sid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE `profile_pic` (
+`profile_pic_id` int(11) NOT NULL,
+  `student_id` int(20) NOT NULL,
+  `prof_pic_url` varchar(200) NOT NULL,
+  `updated_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `studentdetails`
+-- Table structure for table `profile_status_message`
 --
 
-CREATE TABLE IF NOT EXISTS `studentdetails` (
-  `sid` int(11) NOT NULL AUTO_INCREMENT,
-  `studentid` varchar(30) NOT NULL,
+CREATE TABLE `profile_status_message` (
+`status_id` int(11) NOT NULL,
+  `status` int(100) NOT NULL,
+  `student_id` int(10) NOT NULL,
+  `datetime_updated` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+CREATE TABLE `student` (
+`student_id` int(11) NOT NULL,
+  `college_id` int(10) NOT NULL,
   `firstname` varchar(10) NOT NULL,
   `lastname` varchar(10) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `address` varchar(20) NOT NULL,
   `phone` int(10) NOT NULL,
   `email` varchar(20) NOT NULL,
-  `cid` int(10) NOT NULL,
-  `bid` int(10) NOT NULL,
-  PRIMARY KEY (`sid`),
-  UNIQUE KEY `indxstu` (`studentid`),
-  KEY `indxcourse` (`cid`),
-  KEY `indxbatch` (`bid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+  `course_id` int(10) NOT NULL,
+  `batch_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Table structure for table `studentstatus`
+-- Indexes for dumped tables
 --
 
-CREATE TABLE IF NOT EXISTS `studentstatus` (
-  `statusid` int(11) NOT NULL AUTO_INCREMENT,
-  `status` int(20) NOT NULL,
-  `sid` int(10) NOT NULL,
-  `datetime` datetime NOT NULL,
-  PRIMARY KEY (`statusid`),
-  KEY `indxst` (`sid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+--
+-- Indexes for table `batch`
+--
+ALTER TABLE `batch`
+ ADD PRIMARY KEY (`batch_id`);
 
+--
+-- Indexes for table `batch_course`
+--
+ALTER TABLE `batch_course`
+ ADD PRIMARY KEY (`batch_courseid`), ADD KEY `indxbatch` (`batchid`), ADD KEY `indxcourse` (`course_id`);
+
+--
+-- Indexes for table `college`
+--
+ALTER TABLE `college`
+ ADD PRIMARY KEY (`college_id`);
+
+--
+-- Indexes for table `course`
+--
+ALTER TABLE `course`
+ ADD PRIMARY KEY (`course_id`), ADD KEY `indxdep` (`department_id`);
+
+--
+-- Indexes for table `cover_photo`
+--
+ALTER TABLE `cover_photo`
+ ADD PRIMARY KEY (`photo_id`), ADD KEY `indxst` (`student_id`);
+
+--
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+ ADD PRIMARY KEY (`department_id`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+ ADD PRIMARY KEY (`login_id`), ADD UNIQUE KEY `username` (`username`), ADD KEY `indxst` (`student_id`);
+
+--
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+ ADD PRIMARY KEY (`message_id`), ADD KEY `indxfrom` (`from_student_id`), ADD KEY `indxto` (`to_student_id`);
+
+--
+-- Indexes for table `profile_pic`
+--
+ALTER TABLE `profile_pic`
+ ADD PRIMARY KEY (`profile_pic_id`), ADD KEY `indxst` (`student_id`);
+
+--
+-- Indexes for table `profile_status_message`
+--
+ALTER TABLE `profile_status_message`
+ ADD PRIMARY KEY (`status_id`), ADD KEY `indxst` (`student_id`);
+
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+ ADD PRIMARY KEY (`student_id`), ADD UNIQUE KEY `indxstu` (`college_id`), ADD KEY `indxcourse` (`course_id`), ADD KEY `indxbatch` (`batch_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `batch`
+--
+ALTER TABLE `batch`
+MODIFY `batch_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `batch_course`
+--
+ALTER TABLE `batch_course`
+MODIFY `batch_courseid` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `college`
+--
+ALTER TABLE `college`
+MODIFY `college_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `course`
+--
+ALTER TABLE `course`
+MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `cover_photo`
+--
+ALTER TABLE `cover_photo`
+MODIFY `photo_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `department`
+--
+ALTER TABLE `department`
+MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `profile_pic`
+--
+ALTER TABLE `profile_pic`
+MODIFY `profile_pic_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `profile_status_message`
+--
+ALTER TABLE `profile_status_message`
+MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `student`
+--
+ALTER TABLE `student`
+MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -184,53 +298,50 @@ CREATE TABLE IF NOT EXISTS `studentstatus` (
 -- Constraints for table `batch_course`
 --
 ALTER TABLE `batch_course`
-  ADD CONSTRAINT `batch_course_ibfk_2` FOREIGN KEY (`courseid`) REFERENCES `courses` (`cid`),
-  ADD CONSTRAINT `batch_course_ibfk_1` FOREIGN KEY (`batchid`) REFERENCES `batch` (`bid`);
+ADD CONSTRAINT `batch_course_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
+ADD CONSTRAINT `batch_course_ibfk_1` FOREIGN KEY (`batchid`) REFERENCES `batch` (`batch_id`);
 
 --
--- Constraints for table `courses`
+-- Constraints for table `course`
 --
-ALTER TABLE `courses`
-  ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`did`) REFERENCES `departments` (`did`);
+ALTER TABLE `course`
+ADD CONSTRAINT `course_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`);
 
 --
--- Constraints for table `coverphoto`
+-- Constraints for table `cover_photo`
 --
-ALTER TABLE `coverphoto`
-  ADD CONSTRAINT `coverphoto_ibfk_1` FOREIGN KEY (`sid`) REFERENCES `studentdetails` (`sid`);
+ALTER TABLE `cover_photo`
+ADD CONSTRAINT `cover_photo_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`);
 
 --
 -- Constraints for table `login`
 --
 ALTER TABLE `login`
-  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`sid`) REFERENCES `studentdetails` (`sid`);
+ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`);
 
 --
--- Constraints for table `messages`
+-- Constraints for table `message`
 --
-ALTER TABLE `messages`
-  ADD CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`toid`) REFERENCES `studentdetails` (`sid`),
-  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`fromid`) REFERENCES `studentdetails` (`sid`);
+ALTER TABLE `message`
+ADD CONSTRAINT `message_ibfk_2` FOREIGN KEY (`to_student_id`) REFERENCES `student` (`student_id`),
+ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`from_student_id`) REFERENCES `student` (`student_id`);
 
 --
--- Constraints for table `propic`
+-- Constraints for table `profile_pic`
 --
-ALTER TABLE `propic`
-  ADD CONSTRAINT `propic_ibfk_1` FOREIGN KEY (`sid`) REFERENCES `studentdetails` (`sid`);
+ALTER TABLE `profile_pic`
+ADD CONSTRAINT `profile_pic_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`);
 
 --
--- Constraints for table `studentdetails`
+-- Constraints for table `profile_status_message`
 --
-ALTER TABLE `studentdetails`
-  ADD CONSTRAINT `studentdetails_ibfk_2` FOREIGN KEY (`bid`) REFERENCES `batch` (`bid`),
-  ADD CONSTRAINT `studentdetails_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `courses` (`cid`);
+ALTER TABLE `profile_status_message`
+ADD CONSTRAINT `profile_status_message_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`);
 
 --
--- Constraints for table `studentstatus`
+-- Constraints for table `student`
 --
-ALTER TABLE `studentstatus`
-  ADD CONSTRAINT `studentstatus_ibfk_1` FOREIGN KEY (`sid`) REFERENCES `studentdetails` (`sid`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ALTER TABLE `student`
+ADD CONSTRAINT `student_ibfk_3` FOREIGN KEY (`college_id`) REFERENCES `college` (`college_id`),
+ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
+ADD CONSTRAINT `student_ibfk_2` FOREIGN KEY (`batch_id`) REFERENCES `batch` (`batch_id`);
