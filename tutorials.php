@@ -6,6 +6,7 @@ $about = "";
 $student = "";
 $tutorials = "active";
 $contact = "";
+echo "Feba";
 ?>
 <body>
 	<div class="container">
