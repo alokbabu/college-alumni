@@ -5,8 +5,8 @@ include_once 'lib/Query.php';
 $home = "active";
 $about = "";
 $student = "";
-$tutorial = "";
-$contactus = "";
+$tutorials = "";
+$contact = "";
 ?>
 <body>
 	<div class="container">
