@@ -18,10 +18,10 @@ class Department
 	private $departmentname;
 
 	//Constructor
-	function __construct()
+	function __construct($departmentid,$departmentname)
 	{
-		$this->departmentid=0;
-		$this->departmentname = "";
+		$this->departmentid = $departmentid;
+		$this->departmentname = $departmentname;
 	}
 
 	/**

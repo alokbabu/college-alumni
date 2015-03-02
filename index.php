@@ -1,6 +1,6 @@
 <?php 
 include_once 'header.php';
-include_once 'lib/Student.php';
+include_once 'lib/Login.php';
 include_once 'lib/Query.php';
 $home = "active";
 $about = "";
@@ -50,9 +50,13 @@ $contact = "";
 				$students = array();
 				array_push($students, $student_one);
 				array_push($students, $student_two);
-
-
 				var_dump($students);
+
+				$department = new department(1,"computer");
+				var_dump($department);
+
+				$user = new Login(1,'merin','pass','ur fav color','green');
+				var_dump($user);
 
 				//Creating instance of Query Class
 				//$query= new Query();
