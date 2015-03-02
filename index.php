@@ -3,6 +3,10 @@ include_once 'header.php';
 include_once 'lib/Student.php';
 include_once 'lib/Query.php';
 $home = "active";
+$about = "";
+$student = "";
+$tutorial = "";
+$contactus = "";
 ?>
 <body>
 	<div class="container">

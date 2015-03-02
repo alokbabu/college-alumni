@@ -1,7 +1,11 @@
 <?php 
 include_once 'header.php';
 include_once 'lib/query.php';
-$tutorials = "active";
+$home = "";
+$about = "";
+$student = "";
+$tutorial = "active";
+$contactus = "";
 ?>
 <body>
 	<div class="container">
