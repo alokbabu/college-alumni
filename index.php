@@ -56,7 +56,7 @@ $contact = "";
 				var_dump($department);
 
 				$user = new Login(1,'merin','pass','ur fav color','green');
-				var_dump($user);
+				var_dump($users);
 
 				//Creating instance of Query Class
 				//$query= new Query();
