@@ -11,7 +11,7 @@
  * @license: https://github.com/alokbabu/college-alumni/blob/master/license.txt BSD
  */
 
-include_once 'lib/Database.php';
+include_once 'includes/Database.php';
 include_once 'lib/Student.php';
 
 class Query extends Database
