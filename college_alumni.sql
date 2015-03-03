@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 02, 2015 at 07:31 PM
+-- Generation Time: Mar 03, 2015 at 06:23 AM
 -- Server version: 5.5.38
 -- PHP Version: 5.6.2
 
@@ -92,14 +92,14 @@ CREATE TABLE `department` (
 
 CREATE TABLE `login` (
 `login_id` int(11) NOT NULL,
-  `student_id` int(10) NOT NULL,
+  `student_id` int(10) DEFAULT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `security_qtn` varchar(50) NOT NULL,
-  `security_ans` varchar(50) NOT NULL,
-  `email_validation_token` varchar(200) NOT NULL,
-  `password_reset_token` varchar(200) NOT NULL
+  `security_qtn` varchar(50) DEFAULT NULL,
+  `security_ans` varchar(50) DEFAULT NULL,
+  `email_validation_token` varchar(200) DEFAULT NULL,
+  `password_reset_token` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
