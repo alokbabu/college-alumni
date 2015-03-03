@@ -16,34 +16,13 @@ $contact = "";
         	<div class="panel-heading">Sign up</div>
         	<div class="panel-body">
         		<form action="sign-up-process.php" method="post">
-		            <div class="form-group">
+		            <div class="form-group break-tp-sm">
 		                <label for="email" class="col-md-3 control-label">Email</label>
 		                <div class="col-md-9">
 		                    <input type="text" class="form-control" name="email" placeholder="Email Address">
 		                </div>
 		            </div>
-		            <div class="form-group break-tp-sm">
-		                <label for="firstname" class="col-md-3 control-label">First Name</label>
-		                <div class="col-md-9">
-		                    <input type="text" class="form-control" name="firstname" placeholder="First Name">
-		                </div>
-		            </div>
-		            <div class="form-group break-tp-sm">
-		                <label for="lastname" class="col-md-3 control-label">Last Name</label>
-		                <div class="col-md-9">
-		                    <input type="text" class="form-control" name="lastname" placeholder="Last Name">
-		                </div>
-		            </div>
-		            <div class="form-group break-tp-sm">
-		                <label for="gender" class="col-md-3 control-label">Gender</label>
-		                <div class="col-md-9">
-		                    <select class="form-control" name="gender">
-		                    	<option value="-1">select gender</option>
-		                    	<option value="2">Male</option>
-		                    	<option value="3">Female</option>
-		                    </select>
-		            </div>
-		            </div>
+		            
 		            <div class="form-group break-tp-sm">
 		                <label for="username" class="col-md-3 control-label">Username</label>
 		                <div class="col-md-9">

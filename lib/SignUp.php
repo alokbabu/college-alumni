@@ -15,7 +15,7 @@
 include_once 'lib/Login.php';
 
 
-class SignUp extends Login
+class SignUp
 {
 //Member properties
 	/**
@@ -23,40 +23,27 @@ class SignUp extends Login
 	*/
 	private $email;
 	/**
-	 * @var string holds firstname.
-	*/
-	private $firstname;
-
-	/**
-	 * @var int holds username.
-	*/
-	private $lastname;
-	
-	/**
-	 * @var string holds gender.
-	*/
-	private $gender;
-
-	/**
 	 * @var int holds security qn.
 	*/
 	private $username;
-
 	/**
 	 * @var int holds security qn.
 	*/
 	private $password;
+	/**
+	 * @var string holds email validation token for validating emails. This token will be send to 
+	 * user's email address and when the user clicks the link his email will be validated.
+	*/
+	private $email_validation_token;
 	
 
 
-	function __construct($email, $firstname, $lastname, $gender, $username, $password)
+	function __construct($email, $username, $password)
 	{
 		$this->email = $email;
-		$this->firstname = $firstname;
-		$this->lastname = $lastname;
-		$this->password = $password;
 		$this->username = $username;
-
+		$this->password = $password;
+		$this->email_validation_token = $this->generate_validation_token();
 	}
 
 	function __destruct()
@@ -64,9 +51,59 @@ class SignUp extends Login
 
 	}
 
-	public function generate_validation_token()
+	/**
+	 * Magic Getter Method for PHP. Rather than calling individual getters and setters for member properties
+	 * this method can get any member property by its name.
+	 *
+	 * @param: string
+	 * Eg: $object->__get("firstname");
+	*/
+	public function __get($property) 
 	{
-		//Logic random pair of numbers alphabets
+	    if (property_exists($this, $property)) 
+	    {
+		    return $this->$property;
+		}
 	}
+
+	/**
+	 * Magic Setter Method for PHP. Rather than calling individual getters and setters for member properties
+	 * this method can set any member property by its name and value.
+	 *
+	 * @param: string $property
+	 * @param: string $value
+	 * Eg: $object->__set("firstname","Joe");
+	*/
+  	public function __set($property, $value)
+  	{
+		if (property_exists($this, $property))
+	  	{
+	  		$this->$property = $value;
+		}
+		return $this;
+  	}
+
+	/**
+	* Generates random string with provided length
+	* @param int $length
+	* @return string
+	*
+	**/
+	public function generate_validation_token($length = 30)
+	{		
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $charactersLength = strlen($characters);
+	    $randomString = '';
+	    for ($i = 0; $i < $length; $i++) {
+	        $randomString .= $characters[rand(0, $charactersLength - 1)];
+	    }
+	    return $randomString;
+	}
+
+// END SignUp class
+
+/* End of file SignUp.php */
+/* Location: ./lib/SignUp.php */
+
 
 }
