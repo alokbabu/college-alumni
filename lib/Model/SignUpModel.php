@@ -31,13 +31,13 @@ Class SignUpModel extends Database
 		}
 
 		$username               = $newSignUp->__get("username");
-		$password               = $newSignUp->__get("pasword");
+		$password               = $newSignUp->__get("password");
 		$email                  = $newSignUp->__get("email");
 		$email_validation_token = $newSignUp->__get("email_validation_token");
 		
 		/* Bind parameters
          s - string, b - blob, i - int, etc */
-         
+
 		if(!($stmt->bind_param("ssss", $username, $password, $email, $email_validation_token)))
 		{
 			echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
