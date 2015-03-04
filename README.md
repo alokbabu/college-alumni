@@ -5,18 +5,18 @@ A training project with PHP, Bootstrap and GitHub.
 PHP College Alumni web application with MVC Architectural patterns without frameworks.
 
 ## Structure
-assets/css
-assets/images
-assets/js
+- assets/css
+- assets/images
+- assets/js
 
-/includes/
-/includes/footer.php
-/includes/header.php
-/includes/nav-bar.php
+- /includes/
+- /includes/footer.php
+- /includes/header.php
+- /includes/nav-bar.php
 
-lib/config/
-lib/controller/
-lib/model/
+- lib/config/
+- lib/controller/
+- lib/model/
 
 
 #Recommended link
