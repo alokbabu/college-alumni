@@ -46,12 +46,12 @@ $contact = "";
             </div><!--./panel-body-->    
 		</div> <!-- ./panel-->
 		 <?php
-		 if($_SESSION["error"] != "")
+		 if(isset($_SESSION["errors"]))
 		 {
 		 	include_once 'error.php';
 		 }
 		 ?>
-		 <div><!-- ./container-->
+		 </div><!-- ./container-->
 </body>
 
 <?php include_once 'includes/footer.php'; ?>

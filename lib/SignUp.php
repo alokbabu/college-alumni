@@ -106,21 +106,34 @@ class SignUp
 	public function validatate_signup(self $signup)
 	{
 		$this->validation_errors = array();
-		if($signup->__get("email") == "")
+		if($signup->__get("email") == ""||$signup->__get("email") == null )
 		{
 			array_push($this->validation_errors, "Enter a email address") ;
 		}
-		else if (filter_var($signup->__get("email", FILTER_VALIDATE_EMAIL)))
+		else if(filter_var($signup->__get("email"), FILTER_VALIDATE_EMAIL) === false)
 		{
-			array_push($this->validation_errors,"Enter a valid email address");
+			array_push($this->validation_errors, "Enter a valid Email address");
+
 		}
-		if($signup->__get("username") == "")
+
+		if(empty($signup->__get("username")))
 		{
 			array_push($this->validation_errors, "Please enter a username");
 		}
-		else if(preg_match("/^[a-zA-Z0-9]*$/", $signup->__get("username")))
+		else if(!preg_match("/^[a-zA-Z0-9]{8,15}$/", $signup->__get("username")))
 		{
-			array_push($this->validation_errors, "Usernames must contain only letters and numbers. No white space allowed");
+			array_push($this->validation_errors, "Usernames must contain only letters and numbers, maximum 8-15 length. No white space allowed");
+		}
+
+		if(empty($signup->__get("password"))||$signup->__get("password")==null||$signup->__get("password")=="")
+		{
+			//echo "mmmmmmmmmmmmmmmmmmmmmmmmm";
+			//echo $signup->__get("password");
+			array_push($this->validation_errors, "Please enter a password");
+		}
+		else if(!preg_match("/^[a-zA-Z0-9]*$/", $signup->__get("password")))
+		{
+			array_push($this->validation_errors, "password must contain only letters and numbers, maximum 8-15 length. No white space allowed");
 		}
 
 		return $this->validation_errors;
