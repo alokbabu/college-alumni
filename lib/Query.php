@@ -10,10 +10,8 @@
  * @copyright: Technolodge, 2015. 
  * @license: https://github.com/alokbabu/college-alumni/blob/master/license.txt BSD
  */
-
 include_once $_SERVER['DOCUMENT_ROOT'].'/college-alumni/lib/Database.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/college-alumni/lib/Student.php';
-
 class Query extends Database
 {
 
