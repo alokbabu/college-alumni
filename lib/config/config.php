@@ -1,5 +1,5 @@
 <?php
-$base_path = "http://localhost:8080/college-alumni/";
+$base_path = "http://localhost:8888/college-alumni/";
 $absolute_path = $_SERVER['DOCUMENT_ROOT']."/college-alumni/";
 
 // /*Directories that contain classes*/
