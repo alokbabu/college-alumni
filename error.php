@@ -3,10 +3,7 @@
     <strong>Warning!</strong> 
     <br>
     <?php
-//var_dump($_SESSION["errors"]);
     foreach ($_SESSION["errors"] as $error) {
-
-    	
     	echo $error;
     	echo "<br>";
     }
