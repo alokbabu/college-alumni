@@ -2,21 +2,9 @@
 A training project with PHP, Bootstrap and GitHub.
 
 #Aim
-PHP College Alumni web application with MVC Architectural patterns without frameworks.
-
-## Structure
-- assets/css
-- assets/images
-- assets/js
-
-- /includes/
-- /includes/footer.php
-- /includes/header.php
-- /includes/nav-bar.php
-
-- lib/config/
-- lib/controller/
-- lib/model/
+A try on building PHP College Alumni web application on MVC patterns without frameworks. 
+- PHP Version 5.6.2
+- MySQL 5.5.38
 
 
 #Recommended link
