@@ -10,7 +10,7 @@
  * @copyright: Technolodge, 2015. 
  * @license: https://github.com/alokbabu/college-alumni/blob/master/license.txt BSD
  */
-require_once('lib/Database.php');
+require_once $_SERVER['DOCUMENT_ROOT'].'/college-alumni/lib/Database.php';
 
 Class SignUpModel extends Database
 {
@@ -23,11 +23,15 @@ Class SignUpModel extends Database
 
 	public function insert(signup $newSignUp)
 	{
+		/* Initialising Sqli Connection */
+
 		$myconn = parent::establish_connection();
-		// prepare and bind
+		
+		/* Prepared statement, stage 1: prepare */
+
 		if(!($stmt=$myconn->prepare("INSERT INTO Login (username, password, email, email_validation_token) VALUES (?, ?, ?, ?)")))
 		{
-			echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+			return "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 		}
 
 		$username               = $newSignUp->__get("username");
@@ -35,21 +39,35 @@ Class SignUpModel extends Database
 		$email                  = $newSignUp->__get("email");
 		$email_validation_token = $newSignUp->__get("email_validation_token");
 		
+		/* Prepared statement, stage 2: bind and execute */
+
 		/* Bind parameters
-         s - string, b - blob, i - int, etc */
+         * s - string, b - blob, i - int, etc 
+        */
 
 		if(!($stmt->bind_param("ssss", $username, $password, $email, $email_validation_token)))
 		{
-			echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+			return "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 		}
-		
 
 
-		$stmt->execute();
+		if (!$stmt->execute()) 
+		{
+			 return "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+		else
+		{
+			/*
+			 * Returns the number of rows affected by INSERT, UPDATE, or DELETE query.
+			 *
+			*/
+			return $stmt->affected_rows;
+		}
+		/* explicit close recommended */
 		$stmt->close();
+
 		$myconn->close();
 
-		//return $myconn->result;
 	}
 
 	public function update()

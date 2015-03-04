@@ -11,7 +11,7 @@
  * @license: https://github.com/alokbabu/college-alumni/blob/master/license.txt BSD
  */
 
-include_once 'lib/Department.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/college-alumni/lib/Department.php';
 
 class Course extends Department
 {
@@ -71,8 +71,4 @@ class Course extends Department
 		return $this;
   	}
 }
-// END Course class
-
-/* End of file Course.php */
-/* Location: ./lib/Course.php */
 ?>

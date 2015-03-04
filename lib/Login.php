@@ -12,7 +12,7 @@
  * @license: https://github.com/alokbabu/college-alumni/blob/master/license.txt BSD
  */
 
-include_once 'lib/Student.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/college-alumni/lib/Student.php';
 
 
 class Login extends Student

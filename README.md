@@ -18,6 +18,7 @@ Unauthorised pull requests will be ignored.
 #Recommended link
 - http://code.tutsplus.com/tutorials/object-oriented-php-for-beginners--net-12762
 - http://codular.com/php-mysqli
+- http://php.net/manual/en/mysqli.quickstart.prepared-statements.php
 - http://code.tutsplus.com/tutorials/30-php-best-practices-for-beginners--net-6194
 - http://code.tutsplus.com/tutorials/add-power-to-your-php-with-multi-tiered-applications--net-4068
 

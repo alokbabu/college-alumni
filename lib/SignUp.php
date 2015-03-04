@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Description: Login class.
  *
@@ -12,7 +11,7 @@
  * @license: https://github.com/alokbabu/college-alumni/blob/master/license.txt BSD
  */
 
-include_once 'lib/Login.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/college-alumni/lib/Login.php';
 
 
 class SignUp
@@ -35,6 +34,8 @@ class SignUp
 	 * user's email address and when the user clicks the link his email will be validated.
 	*/
 	private $email_validation_token;
+
+	private $validation_errors;
 	
 
 
@@ -42,8 +43,9 @@ class SignUp
 	{
 		$this->email = $email;
 		$this->username = $username;
-		$this->password = $password;
+		$this->password = md5($password);
 		$this->email_validation_token = $this->generate_validation_token();
+		$this->validation_errors = "";
 	}
 
 	function __destruct()
@@ -98,6 +100,30 @@ class SignUp
 	        $randomString .= $characters[rand(0, $charactersLength - 1)];
 	    }
 	    return $randomString;
+	}
+
+	
+	public function validatate_signup(self $signup)
+	{
+		$this->validation_errors = array();
+		if($signup->__get("email") == "")
+		{
+			array_push($this->validation_errors, "Enter a email address") ;
+		}
+		else if (filter_var($signup->__get("email", FILTER_VALIDATE_EMAIL)))
+		{
+			array_push($this->validation_errors,"Enter a valid email address");
+		}
+		if($signup->__get("username") == "")
+		{
+			array_push($this->validation_errors, "Please enter a username");
+		}
+		else if(preg_match("/^[a-zA-Z0-9]*$/", $signup->__get("username")))
+		{
+			array_push($this->validation_errors, "Usernames must contain only letters and numbers. No white space allowed");
+		}
+
+		return $this->validation_errors;
 	}
 
 // END SignUp class

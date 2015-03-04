@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 include_once 'includes/header.php';
 include_once 'lib/Login.php';
 include_once 'lib/Query.php';
@@ -15,7 +16,7 @@ $contact = "";
         <div class="panel panel-default" style="width : 600px;">
         	<div class="panel-heading">Sign up</div>
         	<div class="panel-body">
-        		<form action="sign-up-process.php" method="post">
+        		<form action="lib/Controller/SignUpController.php" method="post">
 		            <div class="form-group break-tp-sm">
 		                <label for="email" class="col-md-3 control-label">Email</label>
 		                <div class="col-md-9">
@@ -44,8 +45,13 @@ $contact = "";
 	            </form>
             </div><!--./panel-body-->    
 		</div> <!-- ./panel-->
-	</div> <!-- ./container-->
-
+		 <?php
+		 if($_SESSION["error"] != "")
+		 {
+		 	include_once 'error.php';
+		 }
+		 ?>
+		 <div><!-- ./container-->
 </body>
 
 <?php include_once 'includes/footer.php'; ?>

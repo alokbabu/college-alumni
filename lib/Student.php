@@ -11,7 +11,7 @@
  * @license: https://github.com/alokbabu/college-alumni/blob/master/license.txt BSD
  */
 
-include_once 'lib/batch.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/college-alumni/lib/batch.php';
 
 class student extends batch
 {
