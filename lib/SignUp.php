@@ -43,7 +43,7 @@ class SignUp
 	{
 		$this->email = $email;
 		$this->username = $username;
-		$this->password = md5($password);
+		$this->password = $password;
 		$this->email_validation_token = $this->generate_validation_token();
 		$this->validation_errors = "";
 	}
@@ -106,36 +106,38 @@ class SignUp
 	public function validatate_signup(self $signup)
 	{
 		$this->validation_errors = array();
-		if($signup->__get("email") == ""||$signup->__get("email") == null )
+		//var_dump($signup);
+		if(empty($signup->email))
 		{
-			array_push($this->validation_errors, "Enter a email address") ;
+			array_push($this->validation_errors, "E-mail address cannot be empty.") ;
 		}
-		else if(filter_var($signup->__get("email"), FILTER_VALIDATE_EMAIL) === false)
+		else if(filter_var($signup->email, FILTER_VALIDATE_EMAIL) === false)
 		{
-			array_push($this->validation_errors, "Enter a valid Email address");
+			array_push($this->validation_errors, "Enter a valid E-mail address.");
 
 		}
 
-		if(empty($signup->__get("username")))
+		if(empty($signup->username))
 		{
-			array_push($this->validation_errors, "Please enter a username");
+			array_push($this->validation_errors, "Username cannot be empty.");
 		}
-		else if(!preg_match("/^[a-zA-Z0-9]{8,15}$/", $signup->__get("username")))
+		else if(!preg_match("/^[a-zA-Z0-9]{4,15}$/", $signup->username))
 		{
-			array_push($this->validation_errors, "Usernames must contain only letters and numbers, maximum 8-15 length. No white space allowed");
-		}
-
-		if(empty($signup->__get("password"))||$signup->__get("password")==null||$signup->__get("password")=="")
-		{
-			//echo "mmmmmmmmmmmmmmmmmmmmmmmmm";
-			//echo $signup->__get("password");
-			array_push($this->validation_errors, "Please enter a password");
-		}
-		else if(!preg_match("/^[a-zA-Z0-9]*$/", $signup->__get("password")))
-		{
-			array_push($this->validation_errors, "password must contain only letters and numbers, maximum 8-15 length. No white space allowed");
+			array_push($this->validation_errors, "Usernames must contain only letters and numbers, maximum 4-15 length. No white space allowed");
 		}
 
+		if(empty($signup->password))
+		{
+			array_push($this->validation_errors, "Please enter a password.");
+		}
+		//URL: http://stackoverflow.com/questions/8141125/regex-for-password-php
+		else if(!preg_match("/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/", $signup->password))
+		{
+			array_push($this->validation_errors, "Password must be a minimum of 8 characters.");
+			array_push($this->validation_errors, "Password must contain at least 1 number.");
+			array_push($this->validation_errors, "Password must contain at least one uppercase character.");
+			array_push($this->validation_errors, "Password must contain at least one lowercase character.");
+		}
 		return $this->validation_errors;
 	}
 
