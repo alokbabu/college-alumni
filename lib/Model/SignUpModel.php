@@ -14,7 +14,12 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/college-alumni/lib/Database.php';
 
 Class SignUpModel extends Database
 {
-	//Database operations
+
+	function __construct()
+	{
+		//Initialising Database.
+		parent::__construct();
+	}
 
 	public function view()
 	{
@@ -25,7 +30,7 @@ Class SignUpModel extends Database
 	{
 		/* Initialising Sqli Connection */
 
-		$myconn = parent::establish_connection();
+		$myconn = $this->establish_connection();
 		
 		/* Prepared statement, stage 1: prepare */
 

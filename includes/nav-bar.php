@@ -21,10 +21,10 @@
         <li class="<?php echo $contact;?>"><a href="#">Contact us</a></li>
       </ul>
 
-      <form class="navbar-form navbar-right" role="search">
+      <form class="navbar-form navbar-right" action = "lib/Controller/LoginController.php" method="post">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Username">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="text" class="form-control" placeholder="Username" name="username">
+          <input type="password" class="form-control" placeholder="Password" name="password">
         </div>
         <button type="submit" class="btn btn-default">Login</button>
         <small><a href="./sign-up.php">&nbsp;new user?</a></small>

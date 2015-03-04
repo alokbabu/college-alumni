@@ -43,13 +43,13 @@ class Login extends Student
 	*/
 	private $sec_answer;
 
-	function __construct($loginid,$username,$password,$sec_question,$sec_answer)
+	function __construct()
 	{
-		$this->loginid = $loginid;
-		$this->username = $username;
-		$this->password = $password;
-		$this->sec_question = $sec_question;
-		$this->sec_answer = $sec_answer;
+		$this->loginid = 0;
+		$this->username = "";
+		$this->password = "";
+		$this->sec_question = "";
+		$this->sec_answer = "";
 
 	}
 
@@ -57,5 +57,37 @@ class Login extends Student
 	{
 
 	}
+
+	/**
+	 * Magic Getter Method for PHP. Rather than calling individual getters and setters for member properties
+	 * this method can get any member property by its name.
+	 *
+	 * @param: string
+	 * Eg: $object->firstname
+	*/
+	public function __get($property) 
+	{
+	    if (property_exists($this, $property)) 
+	    {
+		    return $this->$property;
+		}
+	}
+
+	/**
+	 * Magic Setter Method for PHP. Rather than calling individual getters and setters for member properties
+	 * this method can set any member property by its name and value.
+	 *
+	 * @param: string $property
+	 * @param: string $value
+	 * Eg: $object->__set("firstname","Joe");
+	*/
+  	public function __set($property, $value)
+  	{
+		if (property_exists($this, $property))
+	  	{
+	  		$this->$property = $value;
+		}
+		return $this;
+  	}
 
 }
