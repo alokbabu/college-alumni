@@ -1,4 +1,9 @@
-<?php 
+<?php
+session_start();
+if(isset($_SESSION['userid']))
+{
+	header('Location: home.php');
+}
 include_once 'includes/header.php';
 include_once 'lib/Login.php';
 include_once 'lib/Query.php';
