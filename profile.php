@@ -30,7 +30,7 @@ $logout = "";
 			<form method="post" action = "lib/controller/ProfileController.php">
 				<div class="form-group">
 					<label for="about">About me</label>
-					<textarea  class="form-control" rows="4"></textarea>
+					<textarea name="about"  class="form-control" rows="4"></textarea>
 				</div>
 				<div class="form-group">
 					<label for="firstname">First Name</label>

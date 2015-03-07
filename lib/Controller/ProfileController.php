@@ -20,7 +20,7 @@ if(count($validation_errors = ($student->validate_student($student))) < 1)
 }
 else
 {
-	var_dump($validation_errors) ;
+	print_r($validation_errors) ;
 }
 }
 
