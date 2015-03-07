@@ -23,20 +23,50 @@ $contact = "";
 		</div>
 	
 		<div class="panel panel-default" style="min-height: 600px;">
-			
-				<?php
-
-
-				$new = new student("1001","John","Doe","Male","San fransico","johndoe@example.com","200600799");
-
-
-
-				//Creating instance of Query Class
-				//$query= new Query();
-				//$query->add_student($new_admission);
-				//$query->get_student_byid('1');    
-
-				?>			
+			<div class="col-md-6">
+				<h1>Heading</h1>
+				<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, suscipit voluptas earum mollitia, 
+				culpa voluptatibus aspernatur pariatur atque omnis sapiente soluta natus veniam, enim eaque itaque 
+				laudantium deleniti voluptate ad. Deserunt dolorem corporis voluptates ipsum, quibusdam facilis 
+				natus neque at, ipsa, deleniti similique. Incidunt nemo dignissimos reiciendis velit perferendis! 
+				
+			</p>
+			</div>		
+			<div class="col-md-6 break-tp-md">
+				<div class="panel panel-default">
+					<div class="panel-heading">Sign up</div>
+						<div class="panel-body">
+							<form action="lib/Controller/SignUpController.php" method="post">
+					            <div class="form-group break-tp-sm">
+					                <label for="email" class="col-md-3 control-label">Email</label>
+					                <div class="col-md-9">
+					                    <input type="text" class="form-control" name="email" placeholder="Email Address" value = "<?php if(isset($_GET["email"])) { echo $_GET["email"]; } ?>">
+					                </div>
+					            </div>
+					            
+					            <div class="form-group break-tp-sm">
+					                <label for="username" class="col-md-3 control-label">Username</label>
+					                <div class="col-md-9">
+					                    <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php if(isset($_GET["username"])) { echo $_GET["username"]; } ?>">
+					                </div>
+					            </div>
+					            <div class="form-group break-tp-sm">
+					                <label for="password" class="col-md-3 control-label">Password</label>
+					                <div class="col-md-9">
+					                    <input type="password" class="form-control" name="password" placeholder="Password" value="">
+					                </div>
+					            </div>
+					            <div class="form-group break-tp-sm">
+					                <label for="submit" class="col-md-3 control-label"></label>
+					                <div class="col-md-9">
+					                    <input type="submit" class="btn btn-primary" >
+					                </div>
+					            </div>
+				           	</form>
+			        	</div> <!-- ./panel-body-->
+	            </div> <!-- ./panel-->
+			</div>		
 		</div> <!-- ./panel-default-->
 	</div> <!-- ./container-->
 </body>

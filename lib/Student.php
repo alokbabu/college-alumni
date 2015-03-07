@@ -50,7 +50,7 @@ class student extends batch
 	private $validation_errors;
 	
 	//Constructor
-	function __construct($firstname, $lastname, $gender, $address, $email, $phone, $company, $position, $about)
+	function __construct($studentid, $firstname, $lastname, $gender, $address, $email, $mobile, $about, $occupation)
 	{
 	 //Initialize the parent constructor if required.
 	 //parent::__construct(); 
@@ -64,6 +64,9 @@ class student extends batch
 	 $this->position=$position;
 	 $this->about=$about;
 	 $this->validation_errors="";
+	 $this->mobile = $mobile;
+	 $this->about = $about;
+	 $this->occupation = $occupation;
 	}
 
 	/**

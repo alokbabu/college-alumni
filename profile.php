@@ -15,12 +15,22 @@ $logout = "";
 <body>
 	<div class="container">
 		<?php include_once 'includes/nav-bar-user.php'; ?>
-		<div class="col-md-2"></div>
+		<div class="col-md-2">
+		    <a href="#" class="thumbnail">
+		      <img src="http://www.trueaussielocal.com.au/photo/no-profile-pic-img.gif" alt="prof-pic">
+		    </a>
+		    <a href="#" >Upload profile pic</a>
+		</div>
 		<div class="col-md-10">
+			<ul class="nav nav-tabs">
+	  		  <li role="presentation" class="active"><a href="#">Profile</a></li>
+			  <li role="presentation"><a href="#">Messages</a></li>
+			  <li role="presentation"><a href="#">Status</a></li>
+			</ul>
 			<form method="post" action = "lib/controller/ProfileController.php">
 				<div class="form-group">
-					<label for="about">About</label>
-					<textarea placeholder="About" name="about" row="8" column="5" class="form-control"></textarea>
+					<label for="about">About me</label>
+					<textarea  class="form-control" rows="4"></textarea>
 				</div>
 				<div class="form-group">
 					<label for="firstname">First Name</label>
@@ -45,6 +55,14 @@ $logout = "";
 				<div class="form-group">
 					<label for="phone">Phone</label>
 					<input name="phone" type="textbox" class="form-control" placeholder="Phone"/>
+				</div>
+				<div class="form-group">
+					<label for="occupation">Current occupation</label>
+					<select class="form-control">
+						<option value = "0">Select occupation</option>
+						<option value = "1">No records</option>
+						<option value = "2">No records</option>
+					</select>
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
