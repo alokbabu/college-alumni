@@ -43,20 +43,27 @@ class student extends batch
 	/**
 	 * @var string stores mobile for student.
 	*/
-	private $mobile;
+	private $phone;
+	private $company;
+	private $position;
+	private $about;
+	private $validation_errors;
 	
 	//Constructor
-	function __construct($studentid, $firstname, $lastname, $gender, $address, $email, $mobile)
+	function __construct($firstname, $lastname, $gender, $address, $email, $phone, $company, $position, $about)
 	{
 	 //Initialize the parent constructor if required.
 	 //parent::__construct(); 
-	 $this->studentid = $studentid;
 	 $this->firstname = $firstname;
 	 $this->lastname = $lastname;
 	 $this->gender= $gender;
 	 $this->address = $address;
 	 $this->email = $email;
-	 $this->mobile = $mobile;
+	 $this->phone = $phone;
+	 $this->company=$company;
+	 $this->position=$position;
+	 $this->about=$about;
+	 $this->validation_errors="";
 	}
 
 	/**
@@ -103,6 +110,81 @@ class student extends batch
 		}
 		return $this;
   	}
+
+public function validate_student(self $student)
+	{
+		var_dump($student);
+		echo $student->gender;
+		$this->validation_errors = array();
+		//var_dump($signup);
+		if (empty($student->about)) 
+		{
+			array_push($this->validation_errors, "Please enter About.") ;
+		}
+		if (empty($student->firstname)) 
+		{
+			array_push($this->validation_errors, "Please enter First Name.") ;
+		}
+		else if(!preg_match("/^[a-zA-Z]{3,20}$/", $student->firstname))
+		{
+			array_push($this->validation_errors, "First name must contain only letters , maximum 3-20 length. No white space allowed");
+		}
+		if (empty($student->lastname)) 
+		{
+			array_push($this->validation_errors, "Please enter Last Name. ") ;
+		}
+		else if(!preg_match("/^[a-zA-Z]{3,20}$/", $student->lastname))
+		{
+			array_push($this->validation_errors, "Last name must contain only letters , maximum 3-20 length. No white space allowed");
+		}
+		if ($student->gender == '-1') 
+		{
+			array_push($this->validation_errors, "Please select Gender. ") ;
+		}
+		if (empty($student->address)) 
+		{
+			array_push($this->validation_errors, "Please enter Address. ") ;
+		}
+		else if(!preg_match("/^[a-zA-Z0-9 ]{4,100}$/", $student->address))
+		{
+			array_push($this->validation_errors, "Address must contain only letters and numbers, maximum 4-100 length.");
+		}
+		if (empty($student->phone)) 
+		{
+			array_push($this->validation_errors, "Please enter Phone Number. ") ;
+		}
+        else if(!preg_match("/^[0-9]{1,10}$/", $student->phone))
+		{
+			array_push($this->validation_errors, "Phone number must contain only numbers, maximum 1-10 length. No white space allowed");
+		}
+		if(empty($student->email))
+		{
+			array_push($this->validation_errors, "E-mail address cannot be empty.") ;
+		}
+		else if(filter_var($student->email, FILTER_VALIDATE_EMAIL) === false)
+		{
+			array_push($this->validation_errors, "Enter a valid E-mail address.");
+
+		}
+		if (empty($student->company)) 
+		{
+			array_push($this->validation_errors, "Please enter company.") ;
+		}
+		else if(!preg_match("/^[a-zA-Z]{3,20}$/", $student->company))
+		{
+			array_push($this->validation_errors, "Company name must contain only letters , maximum 3-20 length. No white space allowed");
+		}
+		if (empty($student->position)) 
+		{
+			array_push($this->validation_errors, "Please enter position.") ;
+		}
+		else if(!preg_match("/^[a-zA-Z]{3,20}$/", $student->position))
+		{
+			array_push($this->validation_errors, "Position name must contain only letters , maximum 3-20 length. No white space allowed");
+		}
+		return $this->validation_errors;
+	}
+
 }
 // END Student class
 
