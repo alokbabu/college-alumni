@@ -34,16 +34,16 @@ Class SignUpModel extends Database
 		
 		/* Prepared statement, stage 1: prepare */
 
-		if(!($stmt=$myconn->prepare("INSERT INTO Login (username, password, email, email_validation_token, is_email_verified) VALUES (?, ?, ?, ?, ?)")))
+		if(!($stmt=$myconn->prepare("INSERT INTO Login (username, password, email, email_validation_token, has_email_verified) VALUES (?, ?, ?, ?, ?)")))
 		{
-			return "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+			return "Prepare failed: (" . $myconn->errno . ") " . $myconn->error;
 		}
 
 		$username               = $newSignUp->__get("username");
 		$password               = $newSignUp->__get("password");
 		$email                  = $newSignUp->__get("email");
 		$email_validation_token = $newSignUp->__get("email_validation_token");
-		$is_email_verified		= 0;
+		$has_email_verified		= 0;
 		
 		/* Prepared statement, stage 2: bind and execute */
 
@@ -51,7 +51,7 @@ Class SignUpModel extends Database
          * s - string, b - blob, i - int, etc 
         */
 
-		if(!($stmt->bind_param("ssssi", $username, $password, $email, $email_validation_token, $is_email_verified)))
+		if(!($stmt->bind_param("ssssi", $username, $password, $email, $email_validation_token, $has_email_verified)))
 		{
 			return "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 		}

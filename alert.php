@@ -1,3 +1,4 @@
+<div class="row">
 <?php
  if(isset($_SESSION["errors"]))
  {
@@ -8,3 +9,4 @@
  	require_once 'success.php';
  }
 ?>
+</div>

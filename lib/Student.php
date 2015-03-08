@@ -50,7 +50,7 @@ class student extends batch
 	private $validation_errors;
 	
 	//Constructor
-	function __construct($firstname, $lastname, $gender, $address, $email, $phone, $company, $position, $about)
+	function __construct($firstname = "", $lastname = "", $gender = "", $address = "", $email = "", $phone = "", $company = "", $position = "", $about = "")
 	{
 	 //Initialize the parent constructor if required.
 	 //parent::__construct(); 
@@ -117,8 +117,6 @@ class student extends batch
 
 public function validate_student(self $student)
 	{
-		var_dump($student);
-		echo $student->gender;
 		$this->validation_errors = array();
 		//var_dump($signup);
 		if (empty($student->about)) 
@@ -174,17 +172,17 @@ public function validate_student(self $student)
 		{
 			array_push($this->validation_errors, "Please enter company.") ;
 		}
-		else if(!preg_match("/^[a-zA-Z]{3,20}$/", $student->company))
+		else if(!preg_match("/^[a-zA-Z ]{3,20}$/", $student->company))
 		{
-			array_push($this->validation_errors, "Company name must contain only letters , maximum 3-20 length. No white space allowed");
+			array_push($this->validation_errors, "Company name must contain only letters , maximum 3-20 length.");
 		}
 		if (empty($student->position)) 
 		{
 			array_push($this->validation_errors, "Please enter position.") ;
 		}
-		else if(!preg_match("/^[a-zA-Z]{3,20}$/", $student->position))
+		else if(!preg_match("/^[a-zA-Z ]{3,40}$/", $student->position))
 		{
-			array_push($this->validation_errors, "Position name must contain only letters , maximum 3-20 length. No white space allowed");
+			array_push($this->validation_errors, "Position name must contain only letters , maximum 3-40 length.");
 		}
 		return $this->validation_errors;
 	}

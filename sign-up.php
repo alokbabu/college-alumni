@@ -47,7 +47,7 @@ $contact = "";
 		</div> <!-- ./panel-->
 		 <?php
 		 	//Alert page will display Errors and success alerts when $_SESSION["errors"] and $_SESSION["success"] is set.
-		 	include_once 'alert.php'; 
+		 	include 'alert.php'; 
 		 ?>
 		 </div><!-- ./container-->
 </body>
