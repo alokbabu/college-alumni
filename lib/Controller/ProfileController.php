@@ -10,6 +10,7 @@ if(!isset($_SESSION))
  */
 include_once $_SERVER['DOCUMENT_ROOT']."/college-alumni/lib/Student.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/college-alumni/lib/Model/ProfileModel.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/college-alumni/lib/Model/CourseModel.php";
 include_once $_SERVER['DOCUMENT_ROOT'].'/college-alumni/lib/config/config.php';
 if($_POST != null)
 {
@@ -77,6 +78,12 @@ function get_student_info(student $student)
 {
 	$db = new ProfileModel();
 	return $db->view($student);
+}
+
+function fetch_courses()
+{
+	$db = new CourseModel();
+	return $db->get_all_courses();
 }
 
 

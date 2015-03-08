@@ -43,7 +43,8 @@ $logout = "";
 			else // if user is a returning user
 			{
 				$new_user = FALSE;
-			}		   
+			}
+			print_r(fetch_courses());
 		?>
 		<div class="col-md-10">
 		<?php
@@ -88,6 +89,19 @@ $logout = "";
 					<label for="email">Email</label>
 					<input name="email" type="textbox" class="form-control" placeholder="E-mail" value="<?php echo $_SESSION['email']; ?>" disabled/>
 					<input type="hidden" name="email" value = "<?php echo $_SESSION['email']; ?>">
+				</div>
+				<div class="form-group">
+					<label for="course">Course</label>
+					<select name="course" class="form-control">
+						<?php
+							$courses = fetch_courses();
+							foreach ($courses as $key => $value) 
+							{
+							  echo "<option value=".$value['course_id'].">".$value['course']."</option>";
+							   //echo $value[$key]['course'];
+							}
+						?>
+					</select>
 				</div>
 				<div class="form-group">
 					<label for="currentcompany">Current company</label>

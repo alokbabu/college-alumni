@@ -20,7 +20,7 @@ Class ProfileModel extends Database
 	{
 	   $myconn = $this->establish_connection();
       if(!($stmt=$myconn->prepare("SELECT student_id, college_id, firstname, lastname, gender, address, phone, 
-      							    email, course.course_id, batch.batch_id, course, year_from, year_to, company, position, about FROM `student`
+      							    email, course.course_id, batch.batch_id, course, batch_year, company, position, about FROM `student`
 									INNER JOIN `batch` on student.batch_id = batch.batch_id
 									INNER JOIN `course` on student.course_id = course.course_id WHERE student.email = ?")))
 		{
@@ -51,7 +51,7 @@ Class ProfileModel extends Database
 		else
 		{
 			$stmt->bind_result($student_id, $college_id, $firstname, $lastname, $gender, $address, $phone, 
-      		$email, $course_id, $batch_id, $course, $year_from, $year_to, $company, $position, $about);
+      		$email, $course_id, $batch_id, $course, $batch_year, $company, $position, $about);
 			/*
 			 * MySqli_stmt_fetch()
 			 * TRUE	Success. Data has been fetched
@@ -62,7 +62,7 @@ Class ProfileModel extends Database
 			{
 				//Adding result to an array.
 				$result = array("student_id"=>$student_id, "college_id"=>$college_id, "firstname"=>$firstname, "lastname"=>$lastname, "gender"=>$gender, "address"=>$address, "phone"=>$phone, 
-      							    "email"=>$email, "course_id"=>$course_id, "batch_id"=>$batch_id, "course"=>$course_id, "year_from"=>$year_from, "year_to"=>$year_to, "company"=>$company, "position"=>$position, "about"=>$about);
+      							    "email"=>$email, "course_id"=>$course_id, "batch_id"=>$batch_id, "course"=>$course_id, "batch_year"=>$batch_year, "company"=>$company, "position"=>$position, "about"=>$about);
 				return $result;
 			}
 		}
