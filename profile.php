@@ -94,8 +94,8 @@ $logout = "";
 					<label for="course">Course</label>
 					<select name="course" class="form-control">
 						<?php
-							$courses = fetch_courses();
-							foreach ($courses as $key => $value) 
+							//$courses = fetch_courses();
+							foreach (fetch_courses() as $key => $value) 
 							{
 							  echo "<option value=".$value['course_id'].">".$value['course']."</option>";
 							   //echo $value[$key]['course'];
