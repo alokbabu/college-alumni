@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2015 at 07:31 AM
+-- Generation Time: Mar 09, 2015 at 08:59 PM
 -- Server version: 5.5.38
 -- PHP Version: 5.6.2
 
@@ -139,7 +139,15 @@ CREATE TABLE `login` (
   `email_validation_token` varchar(200) DEFAULT NULL,
   `password_reset_token` varchar(200) DEFAULT NULL,
   `has_email_verified` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`login_id`, `student_id`, `username`, `password`, `email`, `security_qtn`, `security_ans`, `email_validation_token`, `password_reset_token`, `has_email_verified`) VALUES
+(15, NULL, 'alokbabu', '1842513d47562e58acb599096b718acb', 'alokbabu@nextuz.com', NULL, NULL, '253YMi4Y7Y75mxM7F1fIIALrqF8wrq', NULL, 0),
+(16, NULL, 'john', '09e1fcd206fb25420df958d24b610d29', 'tom@nextuz.com', NULL, NULL, 'CNuOhYNPd4GC3BkjjliKDPc4nH0miX', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -171,15 +179,25 @@ CREATE TABLE `profile_pic` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profile_status_message`
+-- Table structure for table `status_message`
 --
 
-CREATE TABLE `profile_status_message` (
+CREATE TABLE `status_message` (
 `status_id` int(11) NOT NULL,
-  `status` int(100) NOT NULL,
-  `student_id` int(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `status` varchar(2000) NOT NULL,
   `datetime_updated` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `status_message`
+--
+
+INSERT INTO `status_message` (`status_id`, `username`, `status`, `datetime_updated`) VALUES
+(19, 'alokbabu', 'Hello world this is my status message.', '2015-03-09 20:37:40'),
+(23, 'john', 'Hey first time here. ! Feeling good. !', '2015-03-09 20:55:12'),
+(24, 'john', 'Here is another update from me. !', '2015-03-09 20:56:01'),
+(25, 'john', 'The sun is shining. !', '2015-03-09 20:56:09');
 
 -- --------------------------------------------------------
 
@@ -201,7 +219,15 @@ CREATE TABLE `student` (
   `company` varchar(50) DEFAULT NULL,
   `position` varchar(50) DEFAULT NULL,
   `about` varchar(800) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`student_id`, `college_id`, `firstname`, `lastname`, `gender`, `address`, `phone`, `email`, `course_id`, `batch_id`, `company`, `position`, `about`) VALUES
+(16, 1, 'Alok', 'Babu', 0, 'vellemcheril', '8281246907', 'alokbabu@nextuz.com', 1, 1, 'Nextuz', 'CEO', 'This is about me'),
+(17, 1, 'John', 'Xavier', 0, 'JohnHOme', '8281246907', 'tom@nextuz.com', 1, 1, 'Dell', 'Marketer', 'Hello, I am John');
 
 --
 -- Indexes for dumped tables
@@ -262,10 +288,10 @@ ALTER TABLE `profile_pic`
  ADD PRIMARY KEY (`profile_pic_id`), ADD KEY `indxst` (`student_id`);
 
 --
--- Indexes for table `profile_status_message`
+-- Indexes for table `status_message`
 --
-ALTER TABLE `profile_status_message`
- ADD PRIMARY KEY (`status_id`), ADD KEY `indxst` (`student_id`);
+ALTER TABLE `status_message`
+ ADD PRIMARY KEY (`status_id`), ADD KEY `username` (`username`);
 
 --
 -- Indexes for table `student`
@@ -311,7 +337,7 @@ MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `message`
 --
@@ -323,15 +349,15 @@ MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `profile_pic`
 MODIFY `profile_pic_id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `profile_status_message`
+-- AUTO_INCREMENT for table `status_message`
 --
-ALTER TABLE `profile_status_message`
-MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `status_message`
+MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- Constraints for dumped tables
 --
@@ -375,10 +401,10 @@ ALTER TABLE `profile_pic`
 ADD CONSTRAINT `profile_pic_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`);
 
 --
--- Constraints for table `profile_status_message`
+-- Constraints for table `status_message`
 --
-ALTER TABLE `profile_status_message`
-ADD CONSTRAINT `profile_status_message_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`);
+ALTER TABLE `status_message`
+ADD CONSTRAINT `status_message_ibfk_1` FOREIGN KEY (`username`) REFERENCES `login` (`username`);
 
 --
 -- Constraints for table `student`

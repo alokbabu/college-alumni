@@ -157,7 +157,8 @@ Class StatusModel extends Database
 
 	public function delete($id)
 	{
-			  $myconn = $this->establish_connection();
+	//TODO: Delete only if the user is the owner of the status.
+	  $myconn = $this->establish_connection();
       if(!($stmt=$myconn->prepare("DELETE FROM `status_message` WHERE status_id = ?")))
 		{
 			return "Prepare failed: (" . $myconn->errno . ") " . $myconn->error;
