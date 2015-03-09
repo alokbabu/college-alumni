@@ -44,7 +44,7 @@ $logout = "";
 			{
 				$new_user = FALSE;
 			}
-			print_r(fetch_courses());
+			//print_r(fetch_courses());
 		?>
 		<div class="col-md-10">
 		<?php
@@ -52,9 +52,9 @@ $logout = "";
 		 		include 'alert.php';
 		 ?>
 			<ul class="nav nav-tabs">
-	  		  <li role="presentation" class="active"><a href="#">Profile</a></li>
+	  		  <li role="presentation" class="active"><a href="profile.php">Profile</a></li>
 			  <li role="presentation"><a href="#">Messages</a></li>
-			  <li role="presentation"><a href="#">Status</a></li>
+			  <li role="presentation"><a href="status.php">Status</a></li>
 			</ul>
 			<form method="post" action = "lib/controller/ProfileController.php">
 				<div class="form-group">

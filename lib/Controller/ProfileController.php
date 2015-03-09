@@ -60,8 +60,7 @@ if($_POST != null)
 		     }
 		}
 		else
-		{
-			array_push($validation_errors,"Error occured in inserting values ".$sql_response);
+		{				
 			$_SESSION["errors"] = $validation_errors;
 			header("Location: ".$base_path."profile.php?");
 		}
