@@ -104,6 +104,19 @@ $logout = "";
 					</select>
 				</div>
 				<div class="form-group">
+					<label for="batch">Batch</label>
+					<select name="batch" class="form-control">
+						<?php
+							//$courses = fetch_courses();
+							foreach (fetch_batches() as $key => $value) 
+							{
+							  echo "<option value=".$value['batch_id'].">".$value['batch_year']."</option>";
+							   //echo $value[$key]['course'];
+							}
+						?>
+					</select>
+				</div>
+				<div class="form-group">
 					<label for="currentcompany">Current company</label>
 					<input name="company" type="textbox" class="form-control" placeholder="Current company" value = "<?php if(!$new_user) { echo $student_info['company']; } ?>"/>
 				</div>

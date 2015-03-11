@@ -11,6 +11,7 @@ if(!isset($_SESSION))
 include_once $_SERVER['DOCUMENT_ROOT']."/college-alumni/lib/Student.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/college-alumni/lib/Model/ProfileModel.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/college-alumni/lib/Model/CourseModel.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/college-alumni/lib/Model/BatchModel.php";
 include_once $_SERVER['DOCUMENT_ROOT'].'/college-alumni/lib/config/config.php';
 if($_POST != null)
 {
@@ -83,6 +84,12 @@ function fetch_courses()
 {
 	$db = new CourseModel();
 	return $db->get_all_courses();
+}
+
+function fetch_batches()
+{
+	$model = new BatchModel();
+	return $model->get_all_batches();
 }
 
 
