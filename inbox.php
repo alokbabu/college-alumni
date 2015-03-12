@@ -20,9 +20,9 @@ $logout = "";
 		<?php include_once 'includes/nav-bar-user.php'; ?>
 		<div class="col-md-2">
 			<ul class="list-group">
-				<li class="list-group-item"><a href="message.php">Compose</a></li>
-			  <li class="list-group-item"><a href="inbox.php">Inbox</a></li>
-			  <li class="list-group-item"><a href="outbox.php">Sent</a></li>
+			  <a class = "list-group-item" href="message.php">Compose</a></li>
+			  <a class="list-group-item active" href="inbox.php">Inbox</a>
+			  <a class="list-group-item" href="outbox.php">Sent</a></li>
 			</ul>
 		</div>
 		<?php
