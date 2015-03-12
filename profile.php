@@ -44,7 +44,7 @@ $logout = "";
 			{
 				$new_user = FALSE;
 			}
-			//print_r(fetch_courses());
+
 		?>
 		<div class="col-md-10">
 		<?php
@@ -59,15 +59,15 @@ $logout = "";
 			<form method="post" action = "lib/controller/ProfileController.php">
 				<div class="form-group">
 					<label for="about">About me</label>
-					<textarea name="about"  class="form-control" rows="4"><?php if(!$new_user) { echo $student_info['about']; } ?></textarea>
+					<textarea name="about"  class="form-control" rows="4"><?php if(!$new_user) { echo $student_info['about']; }else if(isset($_GET["about"])){ echo  $_GET["about"];} ?></textarea>
 				</div>
 				<div class="form-group">
 					<label for="firstname">First Name</label>
-					<input name="fname" type="textbox" class="form-control" placeholder="Firstname" value = "<?php if(!$new_user) { echo $student_info['firstname']; } ?>"/>
+					<input name="fname" type="textbox" class="form-control" placeholder="Firstname" value = "<?php if(!$new_user) { echo $student_info['firstname']; }else if(isset($_GET["fname"])){ echo  $_GET["fname"];} ?>"/>
 				</div>
 				<div class="form-group">
 					<label for="lastname">Last Name</label>
-					<input name="lname" type="textbox" class="form-control" placeholder="lastname" value = "<?php if(!$new_user) { echo $student_info['lastname']; } ?>"/>
+					<input name="lname" type="textbox" class="form-control" placeholder="lastname" value = "<?php if(!$new_user) { echo $student_info['lastname']; }else if(isset($_GET["lastname"])){ echo  $_GET["lastname"];} ?>"/>
 				</div>
 				<div class="form-group">
 					<label for="gender">Gender</label>
@@ -75,15 +75,16 @@ $logout = "";
 						<option <?php if(!$new_user) { if($student_info['gender'] == 1) { echo 'selected="selected"'; }} ?> value = "-1">Select gender</option>
 						<option <?php if(!$new_user) { if($student_info['gender'] == 0) { echo 'selected="selected"'; }} ?>  value = "0">Male</option>
 						<option <?php if(!$new_user) { if($student_info['gender'] == 1) { echo 'selected="selected"'; }} ?> value = "1">Female</option>
+
 					</select>
 				</div>
 				<div class="form-group">
 					<label for="address">Address</label>
-					<input name="address" type="textbox" class="form-control" placeholder="Address" value = "<?php if(!$new_user) { echo $student_info['address']; } ?>"/>
+					<input name="address" type="textbox" class="form-control" placeholder="Address" value = "<?php if(!$new_user) { echo $student_info['address']; } else if(isset($_GET["address"])){ echo  $_GET["address"];}?>"/>
 				</div>
 				<div class="form-group">
 					<label for="phone">Phone</label>
-					<input name="phone" type="textbox" class="form-control" placeholder="Phone" value = "<?php if(!$new_user) { echo $student_info['phone']; } ?>"/>
+					<input name="phone" type="textbox" class="form-control" placeholder="Phone" value = "<?php if(!$new_user) { echo $student_info['phone']; } else if(isset($_GET["phone"])){ echo  $_GET["phone"];}?>"/>
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
@@ -118,11 +119,11 @@ $logout = "";
 				</div>
 				<div class="form-group">
 					<label for="currentcompany">Current company</label>
-					<input name="company" type="textbox" class="form-control" placeholder="Current company" value = "<?php if(!$new_user) { echo $student_info['company']; } ?>"/>
+					<input name="company" type="textbox" class="form-control" placeholder="Current company" value = "<?php if(!$new_user) { echo $student_info['company']; }else if(isset($_GET["currentcompany"])){ echo  $_GET["currentcompany"];} ?>"/>
 				</div>
 				<div class="form-group">
 					<label for="position">Position</label>
-					<input name="position" type="textbox" class="form-control" placeholder="Position" value="<?php if(!$new_user) { echo $student_info['position']; } ?>"/>
+					<input name="position" type="textbox" class="form-control" placeholder="Position" value="<?php if(!$new_user) { echo $student_info['position']; }else if(isset($_GET["position"])){ echo  $_GET["position"];} ?>"/>
 				</div>
 				
 				<div class="form-group">

@@ -63,7 +63,8 @@ if($_POST != null)
 		else
 		{				
 			$_SESSION["errors"] = $validation_errors;
-			header("Location: ".$base_path."profile.php?");
+			header("Location: ".$base_path."profile.php?fname=".$student->firstname."&lastname=".$student->lastname."&gender=".$student->gender."&address=".$student->address."&phone=".$student->phone."&email=".$student->email."&course=".$student->course.
+				"&batch=".$student->batch."&currentcompany=".$student->company."&position=".$student->position."&about=".$student->about);
 		}
 	}
 }
