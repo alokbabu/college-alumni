@@ -68,9 +68,15 @@ if($_POST != null)
 		}
 	}
 }
-else
+else if(!empty($_GET))
 {
-
+	if(isset($_GET["action"]))
+	{
+		if($_GET["action"] == "get_batch_by_course")
+		{
+			echo json_encode(get_batch_by_course($_GET["id"]));
+		}
+	}
 }
 
 
@@ -91,6 +97,12 @@ function fetch_batches()
 {
 	$model = new BatchModel();
 	return $model->get_all_batches();
+}
+
+function get_batch_by_course($id)
+{
+	$model = new BatchModel();
+	return $model->get_batch_by_course($id);
 }
 
 

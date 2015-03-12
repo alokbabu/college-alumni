@@ -93,7 +93,7 @@ $logout = "";
 				</div>
 				<div class="form-group">
 					<label for="course">Course</label>
-					<select name="course" class="form-control">
+					<select id="course" name="course" class="form-control" onchange="get_batch_by_course()">
 						<?php
 							//$courses = fetch_courses();
 							foreach (fetch_courses() as $key => $value) 
@@ -104,14 +104,33 @@ $logout = "";
 						?>
 					</select>
 				</div>
+				<script>
+				function get_batch_by_course()
+				{	
+					var basepath = "<?php echo $base_path;?>";
+					var selected_course_id = $('#course').val();
+					console.log(selected_course_id);
+					var url = basepath+"lib/Controller/ProfileController.php?action=get_batch_by_course&id="+selected_course_id;
+					console.log(url);
+				    $.getJSON(url, function(data, status){				        
+				       
+				       for (var i = 0; i < data.Table.length; i++)
+				       {
+      						listItems+= "<option value='" + data.Table[i].batch_id + "'>" + data.Table[i].batch_year + "</option>";
+      						console.log(listItems);
+    					}
+				     });
+
+				    }				
+				</script>
 				<div class="form-group">
 					<label for="batch">Batch</label>
-					<select name="batch" class="form-control">
+					<select id = "batch" name="batch" class="form-control">
 						<?php
 							//$courses = fetch_courses();
 							foreach (fetch_batches() as $key => $value) 
 							{
-							  echo "<option value=".$value['batch_id'].">".$value['batch_year']."</option>";
+							 // echo "<option value=".$value['batch_id'].">".$value['batch_year']."</option>";
 							   //echo $value[$key]['course'];
 							}
 						?>
