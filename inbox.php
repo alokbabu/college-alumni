@@ -53,6 +53,11 @@ $logout = "";
 					<small>Message</small>
 					<span class="text-disabled" style="display:block; font-size:11px;">Received on 19-08-20015 12:30 PM</span>
 				</div>
+				<div class="row" style="border: 1px solid #c9c9c9; padding: 18px; margin:2px 2px;">
+					<div>Tom Fridger</div>
+					<small>Message</small>
+					<span class="text-disabled" style="display:block; font-size:11px;">Received on 19-08-20015 12:30 PM</span>
+				</div>
 			</div>
 		</div><!--./container-->
 <?php include_once 'includes/footer.php'; ?>
