@@ -46,7 +46,7 @@ if($_POST != null)
 			$_SESSION["errors"] = $validation_errors;
 			header("Location: ".$base_path."profile.php?validation=failed");
 		}
-	}
+	}	
 	else //New user, first login, Insert Student
 	{
 		if(count($validation_errors = ($student->validate_student($student))) < 1)

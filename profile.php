@@ -53,7 +53,11 @@ $logout = "";
 		 ?>
 			<ul class="nav nav-tabs">
 	  		  <li role="presentation" class="active"><a href="profile.php">Profile</a></li>
+<<<<<<< HEAD
 			  <li role="presentation"><a href="message.php">Messages</a></li>
+=======
+			  <li role="presentation"><a href="inbox.php">Messages</a></li>
+>>>>>>> origin/master
 			  <li role="presentation"><a href="status.php">Status</a></li>
 			</ul>
 			<form method="post" action = "lib/controller/ProfileController.php">
